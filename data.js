@@ -19,13 +19,7 @@ const data = [
     artist: "Armaan Malik",
     type: ["msd"],
   },
-  {
-    image: "img3.jpeg",
-    song: "song3.mp3",
-    title: "Kaun Tujhe",
-    artist: "Palak Muchhal",
-    type: ["msd"],
-  },
+  
   {
     image: "img1.jpeg",
     song: "song4.mp3",
@@ -95,6 +89,13 @@ const data = [
     title: "Tere Sang Yarra",
     artist: "Atif Aslam, Manoj Muntashir",
     type: ["arijit", "lofi", "love"],
+  },
+  {
+    image: "img3.jpeg",
+    song: "song3.mp3",
+    title: "Kaun Tujhe",
+    artist: "Palak Muchhal",
+    type: ["msd"],
   },
 ]
 
