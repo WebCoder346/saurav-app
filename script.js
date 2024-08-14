@@ -4,7 +4,7 @@ let allSongs = [];
 let currentIndex;
 let songBoxesLength;
 let isPlay = false;
-let songType = "";
+let songType;
 const superBtn = document.querySelector(".superBtn");
 const audioElement = document.querySelector(".audioElement");
 const songImg = document.querySelector(".leftSongBox .upRow img");
