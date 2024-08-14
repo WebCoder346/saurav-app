@@ -336,7 +336,7 @@ body {
 
 @media (max-width: 560px) {
   .homePage nav {
-    width: 90%;
+    width: 95%;
   }
   .playlistCon .playlistBox {
     height: 3rem;
