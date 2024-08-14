@@ -127,7 +127,7 @@ body {
 }
 
 .homePage nav {
-  width: 70%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
 }
@@ -326,7 +326,7 @@ body {
 
   .playlistCon .playlistBox {
     width: 40%;
-
+    background: blue;
   }
 
   .playlistCon .playlistBox .songName {
@@ -339,6 +339,7 @@ body {
 @media (max-width: 560px) {
   .playlistCon .playlistBox {
     height: 3rem;
+    background: green;
   }
 
   .playlistCon .playlistBox img {
