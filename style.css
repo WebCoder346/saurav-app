@@ -313,9 +313,7 @@ body {
     display: none;
   }
 
-  .homePage nav {
-    width: 55vw;
-  }
+  
 
   .playlistCon {
     display: flex;
@@ -337,6 +335,9 @@ body {
 }
 
 @media (max-width: 560px) {
+  .homePage nav {
+    width: 90%;
+  }
   .playlistCon .playlistBox {
     height: 3rem;
     background: green;
