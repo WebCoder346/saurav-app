@@ -1,0 +1,301 @@
+/* screen>min===true;
+screen<max===true; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+html,
+body {
+  /* overflow: hidden; */
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  display: flex;
+}
+
+.leftBox {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: space-between;
+  background-color: #1D1D1DA8;
+}
+
+.leftBox .iconBox {
+  height: 50%;
+}
+
+.leftBox .iconBox .row {
+  height: 2.8rem;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.leftBox .iconBox .row i {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.leftSongBox {
+  margin-bottom: 1rem;
+}
+
+.range-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+}
+
+.range-bar .rangeBar {
+  width: 100%;
+  height: 3px;
+  appearance: none;
+  background: #777777;
+}
+
+.range-bar input[type="range"]::-webkit-slider-thumb {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+}
+
+.audioElement {
+  display: none;
+}
+
+.range-bar .progress {
+  position: absolute;
+  height: 2px;
+  background-color: white;
+}
+
+.leftSongBox .upRow {
+  display: flex;
+}
+
+.leftSongBox .upRow .infoBox {
+  margin-left: 1rem;
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0.5rem;
+}
+
+.leftSongBox .upRow img {
+  height: 4rem;
+  width: 4rem;
+}
+
+.leftSongBox .downRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+
+}
+
+.leftSongBox .downRow i {
+  font-size: 1.8rem;
+}
+
+.leftSongBox .downRow .superBtn {
+  font-size: 2rem;
+}
+
+.rightBox {
+  width: 75%;
+  height: 100%;
+}
+
+.homePage {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.homePage nav {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.homePage nav .navBtn {
+  font-size: 0.9rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 1rem;
+  background-color: #333333;
+}
+
+.scrollArea {
+  overflow-x: scroll;
+  height: 90%;
+  margin-top: 1.5rem;
+}
+
+.playlistCon {
+  height: 10rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 13rem);
+  justify-content: space-between;
+}
+
+.playlistCon .playlistBox {
+  height: 3.5rem;
+  background-color: #2D2D2DA8;
+  display: flex;
+  padding: 0.2rem 0;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.ellips {
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+.playlistCon .playlistBox .songName {
+  width: 80%;
+  height: 3rem;
+  font-size: 0.9rem;
+  padding: 2px 5px;
+  width: 80%;
+}
+
+.playlistCon .playlistBox img {
+  height: 100%;
+  width: 3.5rem;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.horizontalScroll {
+  margin-top: 1rem;
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.horizontalScroll .hzScrollBox {
+  height: 16rem;
+  width: 15rem;
+  margin-right: 2rem;
+}
+
+.horizontalScroll .hzScrollBox img {
+  max-width: 15rem;
+  max-height: 14rem;
+  border-radius: 5px;
+}
+
+.homePage {
+  /* display: none; */
+}
+
+.songPage {
+  flex-direction: column;
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+.songPage .topBox {
+  width: 100%;
+  height: 68%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+  background: linear-gradient(to bottom, #6200BC, #B667FF, #534C59);
+}
+
+.songPage .topBox img {
+  width: 13rem;
+  height: 13rem;
+}
+
+.songBoxCon {
+  background: linear-gradient(to bottom, #363437, #000000);
+  height: 20rem;
+  width: 100%;
+}
+
+.songScrollCon {
+  overflow: scroll;
+  height: 90%;
+}
+
+.songPageNav {
+  height: 10%;
+  background: #6200BC;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 0 1rem;
+  margin-right: 2rem;
+}
+
+.songPageBackBtn {
+  height: 2rem;
+  width: 2rem;
+}
+
+.songPageNav span {
+  margin-left: 2rem;
+}
+
+.songBoxCon {
+  padding: 1rem;
+}
+
+.songBoxCon .songBox {
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  margin: 1rem 0;
+}
+
+.songBoxCon .songBox .songInfo {
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-left: 1rem;
+
+}
+
+.songBoxCon .songBox .songInfo .singerName {
+  font-size: 0.9rem;
+  color: #D0D0D0;
+}
+
+.songBoxCon .songBox img {
+  height: 100%;
+  border-radius: 10px;
+
+}

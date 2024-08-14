@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Spotify</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="leftBox">
+    <div class="iconBox">
+      <div class="row houseBtn"><i class="fa-solid fa-house"></i>
+        <p>Home</p>
+      </div>
+      <div class="row"><i class="fa-solid fa-magnifying-glass"></i>
+        <p>Search</p>
+      </div>
+      <div class="row"><i class="fa-brands fa-playstation"></i>
+        <p>Your Library</p>
+      </div>
+      <div class="row"><i class="fa-brands fa-spotify"></i>
+        <p>Premimum</p>
+      </div>
+    </div>
+    <div class="leftSongBox">
+      <div class="range-bar">
+        <div class="progress"></div>
+        <input type="range" min="0" max="100" value="1" class="rangeBar">
+      </div>
+      <div class="upRow">
+        <img src="/SpotifyClone/img/img1.jpeg" alt="image">
+        <div class="infoBox">
+          <p class="songNamePara ellips">Phir Kabhi</p>
+          <p class="artistNamePara ellips" style="font-size: 0.8rem; color:#A8A8A8;">Arijit Singh</p>
+        </div>
+        <audio class="audioElement" src="/SpotifyClone/songs/song10.mp3" controls></audio>
+      </div>
+      <div class="downRow">
+        <i class="fa-solid fa-backward-step"></i>
+        <i class="fa-solid fa-circle-play superBtn"></i>
+        <i class="fa-solid fa-forward-step"></i>
+      </div>
+    </div>
+  </div>
+  <div class="rightBox">
+    <div class="homePage">
+      <nav>
+        <div class="navBtn" style="font-size: 1.1rem; padding:0.3rem 0.7rem; background: deepskyblue;"><b>S</b></div>
+        <div class="navBtn" style="background-color: #21D801;">All</div>
+        <div class="navBtn">Musics</div>
+        <div class="navBtn">Prodcasts</div>
+      </nav>
+      <div class="scrollArea">
+        <div class="playlistCon"></div>
+        <h2>Jump backin</h2>
+        <div class="horizontalScroll backinCon"></div>
+        <h2 style="margin-top: 1rem;">Recomended for Today</h2>
+        <div class="horizontalScroll todayCon">
+        </div>
+      </div>
+    </div>
+
+    <div class="songPage">
+      <div class="songPageNav">
+        <i class="fa-solid fa-arrow-left songPageBackBtn"></i>
+        <span>Lofi songs</span>
+      </div>
+      <div class="songScrollCon">
+        <div class="topBox">
+          <img src="/SpotifyClone/img/img5.jpeg" alt="image">
+          <div class="songInfoCon">
+            <h1>Lofi songs (sukoon vibes)💜<h1>
+                <p style="font-size: 0.9rem; color:#CECDCE;">Here is some descriptions about this playlist if you love this playlist add it to like playlist hello my name is saurav kumar</p>
+          </div>
+        </div>
+        <div class="songBoxCon"></div>
+      </div>
+    </div>
+  </div>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
