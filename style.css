@@ -1,3 +1,6 @@
+/* screen>min===true;
+screen<max===true; */
+
 * {
   margin: 0;
   padding: 0;
@@ -318,10 +321,9 @@ body {
   }
 
   .homePage nav .navBtn {
-    font-size: 0.8rem;
-    padding: 0.1rem 0.5rem;
-    height: 1.5rem;
-    border-radius: 0.5rem;
+    font-size: 0.6rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 1rem;
     display: flex;
     align-items: center;
   }
@@ -424,17 +426,15 @@ body {
   }
 
   .homePage nav .navBtn {
-    font-size: 0.9rem;
-    padding: 0.2rem 0.7rem;
-    height: 1.5rem;
-    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 1rem;
     display: flex;
     align-items: center;
   }
 
   .homePage nav .sIcon {
     font-size: 1rem;
-    padding: 0.2rem 0.5rem;
   }
 
   .playlistCon {
@@ -514,3 +514,17 @@ body {
   }
 
 }
+
+/* .homePage {
+  display: none;
+}
+
+.songPage {
+  display: flex;
+}
+
+.rightBox {
+  border: 2px solid green;
+  height: 100vh;
+  width: 100vw;
+} */
