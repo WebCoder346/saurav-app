@@ -327,7 +327,7 @@ body {
   position: fixed;
   width:100%;
   bottom:10%;
-  display: flex;
+  display: none;
   background-color: #9F4503;
   border-radius: 8px;
 }
@@ -613,6 +613,12 @@ body {
 
   .footer {
     display: flex;
+  }
+  .upFooter{
+    display: flex;
+  }
+  .upFooterShow{
+    display:flex;
   }
 }
 
