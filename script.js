@@ -4,12 +4,16 @@ let allSongs = [];
 let currentIndex;
 let songBoxesLength;
 let isPlay = false;
-let songType;
+let songType = "";
 const superBtn = document.querySelector(".superBtn");
 const audioElement = document.querySelector(".audioElement");
 const songImg = document.querySelector(".leftSongBox .upRow img");
 const songNamePara = document.querySelector(".leftSongBox .upRow .infoBox .songNamePara");
 const artistNamePara = document.querySelector(".leftSongBox .upRow .infoBox .artistNamePara");
+const upFooterImg = document.querySelector(".upFooter img")
+const upFooterArtist = document.querySelector(".upFooter .upFooterInfo .upFooterArtist")
+const upFooterTitle = document.querySelector(".upFooter .upFooterInfo .upFooterTitle")
+const upFooterBtn = document.querySelector(".superBtn2")
 
 // Default song container functionality
 let audioSrc = defaultSong.song;
@@ -17,12 +21,15 @@ audioElement.src = audioSrc;
 songImg.src = defaultSong.image;
 songNamePara.textContent = defaultSong.title;
 artistNamePara.textContent = defaultSong.artist;
+upFooterImg.src = defaultSong.image;
+upFooterTitle.textContent = defaultSong.title;
+upFooterArtist.textContent = defaultSong.artist;
 btnPlayPause();
 rangeBarFnc();
 // rangebar
 
 function rangeBarFnc() {
-const rangeBar = document.querySelector(".rangeBar");
+  const rangeBar = document.querySelector(".rangeBar");
   audioElement.addEventListener("timeupdate", () => {
     rangeBar.value = (audioElement.currentTime / audioElement.duration) * 100;
     const progressBar = document.querySelector(".progress");
@@ -52,6 +59,7 @@ for (let i = 0; i < playlist.length; i++) {
   plstImg.src = playlist[i].image;
   const songName = document.createElement("p");
   songName.className = "songName";
+  songName.classList.add("ellips");
   songName.textContent = playlist[i].title;
   plstBox.appendChild(plstImg);
   plstBox.appendChild(songName);
@@ -172,14 +180,22 @@ function onSongBoxClick() {
       }, 1)
       audioSrc = allSongs[index].song;
       audioElement.src = audioSrc;
-      superBtn.classList.remove("fa-circle-play");
-      superBtn.classList.add("fa-circle-pause");
+      superBtn.classList.remove("fa-play");
+      superBtn.classList.add("fa-pause");
+      
+      upFooterBtn.classList.remove("fa-play");
+      upFooterBtn.classList.add("fa-pause");
+      
       audioElement.play();
       isPlay = true;
       rangeBarFnc()
       songImg.src = allSongs[currentIndex].image;
       songNamePara.textContent = allSongs[currentIndex].title;
       artistNamePara.textContent = allSongs[currentIndex].artist;
+      upFooterImg.src = allSongs[currentIndex].image;
+      upFooterTitle.textContent = allSongs[currentIndex].title;
+      upFooterArtist.textContent = allSongs[currentIndex].artist;
+
       songBoxes = [];
       btnPlayPause();
     })
@@ -191,6 +207,7 @@ function refresh(index) {
   document.querySelector(".leftSongBox .upRow img").src = allSongs[index].image;
   document.querySelector(".leftSongBox .upRow .infoBox .songNamePara").textContent = allSongs[index].title;
 }
+
 
 function playFnc() {
   superBtn.classList.remove("fa-circle-play");
@@ -221,9 +238,30 @@ function btnPlayPause() {
   })
 }
 
-function getBackHome(){
+function getBackHome() {
   document.querySelector(".songPage").style.display = "none";
   document.querySelector(".homePage").style.display = "flex";
 }
 document.querySelector(".songPageBackBtn").addEventListener("click", getBackHome);
 document.querySelector(".leftBox .iconBox .houseBtn").addEventListener("click", getBackHome);
+
+
+
+upFooterBtn.addEventListener("click", (e) => {
+  if (isPlay) {
+    e.target.classList.remove("fa-pause");
+    e.target.classList.add("fa-play");
+    audioElement.pause();
+    setTimeout(() => {
+      isPlay = false;
+    }, 100)
+  }
+  else {
+    e.target.classList.remove("fa-play");
+    e.target.classList.add("fa-pause");
+    audioElement.play();
+    setTimeout(() => {
+      isPlay = true;
+    }, 100)
+  }
+});
