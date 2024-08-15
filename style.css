@@ -1,3 +1,5 @@
+/* screen>min===true;
+screen<max===true; */
 
 * {
   margin: 0;
@@ -303,9 +305,11 @@ body {
   display: flex;
   align-items: center;
 }
-.playlistCon .playlistBox{
+
+.playlistCon .playlistBox {
   width: 45%;
 }
+
 @media (max-width: 600px) {
   .rightBox {
     height: 100vh;
@@ -318,6 +322,7 @@ body {
 
   .homePage nav {
     width: 70%;
+    /* border:2px solid red; */
   }
 
   .homePage nav .navBtn {
@@ -431,6 +436,7 @@ body {
     border-radius: 1rem;
     display: flex;
     align-items: center;
+    margin-right: 1rem;
   }
 
   .homePage nav .sIcon {
@@ -513,18 +519,24 @@ body {
     text-overflow: ellipsis;
   }
 
+  .homePage nav {
+    width: 100%;
+    display:flex;
+    justify-content: flex-start;
+  }
 }
 
-/* .homePage {
+/* 
+.homePage {
   display: none;
 }
 
 .songPage {
   display: flex;
-}
+} */
 
 .rightBox {
   border: 2px solid green;
-  height: 100vh;
-  width: 100vw;
-} */
+  /* height: 650px;
+  width: 350px; */
+}
