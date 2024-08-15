@@ -95,7 +95,7 @@ const data = [
     song: "song3.mp3",
     title: "Kaun Tujhe",
     artist: "Palak Muchhal",
-    type: ["msd"],
+    type: ["msd","lofi"],
   },
 ]
 
