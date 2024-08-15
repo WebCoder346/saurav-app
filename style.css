@@ -310,6 +310,89 @@ body {
   width: 45%;
 }
 
+
+/* footer styling */
+.footer {
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid green; */
+  width: 100%;
+  /* background: linear-gradient(to top, #000000, #37373780); */
+}
+
+.upFooter {
+  padding: 0.5rem;
+  
+  /* border:2px solid red; */
+  position: fixed;
+  width:100%;
+  bottom:10%;
+  display: flex;
+  background-color: #9F4503;
+  border-radius: 8px;
+}
+
+.upFooter img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 5px;
+}
+
+.upFooter .upFooterInfo {
+  /* border:2px solid blue; */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.upFooter .upFooterInfo .upFooterTitle {
+  font-size: 0.8rem;
+
+}
+
+.upFooter .upFooterInfo .upFooterArtist {
+  font-size: 0.7rem;
+  color: #B5B5B5;
+}
+
+/* .footer {
+  
+ border:2px solid red;
+  height: 5rem;
+  display: flex;
+} */
+.footer{
+  /* border:2px solid blue; */
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:1rem;
+  background: linear-gradient(to top,#000000,#111110);
+  height: 10%;
+}
+.footer .column {
+  width:5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer .column i {
+  font-size: 1.4rem;
+  text-shadow: 4px 4px 10px black;
+}
+
+.footer .column p {
+  font-size: 0.7rem;
+  margin-top: 5px;
+  text-shadow: 4px 4px 10px black;
+}
+
+
+
+
 @media (max-width: 600px) {
   .rightBox {
     height: 100vh;
@@ -322,7 +405,6 @@ body {
 
   .homePage nav {
     width: 70%;
-    /* border:2px solid red; */
   }
 
   .homePage nav .navBtn {
@@ -378,6 +460,10 @@ body {
     width: 10rem;
     height: 10rem;
     border-radius: 5px;
+  }
+
+  .songPage .songPageNav {
+    height: 2.5rem;
   }
 
   .songPage .songPageNav span {
@@ -521,8 +607,12 @@ body {
 
   .homePage nav {
     width: 100%;
-    display:flex;
+    display: flex;
     justify-content: flex-start;
+  }
+
+  .footer {
+    display: flex;
   }
 }
 
@@ -536,7 +626,7 @@ body {
 } */
 
 .rightBox {
-  
-  /* height: 650px;
-  width: 350px; */
+  /* border: 2px solid green; */
+   height: 90%;
+   position: relative;
 }
