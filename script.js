@@ -5,15 +5,20 @@ let currentIndex;
 let songBoxesLength;
 let isPlay = false;
 let songType = "";
-const superBtn = document.querySelector(".superBtn");
+const songPage = document.querySelector(".songPage")
+const homePage = document.querySelector(".homePage")
+const superBtn1 = document.querySelector(".superBtn1");
+const superBtn2 = document.querySelector(".superBtn2");
 const audioElement = document.querySelector(".audioElement");
 const songImg = document.querySelector(".leftSongBox .upRow img");
 const songNamePara = document.querySelector(".leftSongBox .upRow .infoBox .songNamePara");
 const artistNamePara = document.querySelector(".leftSongBox .upRow .infoBox .artistNamePara");
+const footerCon = document.querySelector(".footerCon");
 const upFooterImg = document.querySelector(".upFooter img")
 const upFooterArtist = document.querySelector(".upFooter .upFooterInfo .upFooterArtist")
 const upFooterTitle = document.querySelector(".upFooter .upFooterInfo .upFooterTitle")
-const upFooterBtn = document.querySelector(".superBtn2")
+const upFooterBtn = document.querySelector(".upFooterBtn")
+const phoneSongPage = document.querySelector(".phoneSongPage");
 
 // Default song container functionality
 let audioSrc = defaultSong.song;
@@ -27,28 +32,61 @@ upFooterArtist.textContent = defaultSong.artist;
 btnPlayPause();
 rangeBarFnc();
 // rangebar
+function updateAll(currentIndex) {
+  document.querySelectorAll(".songImages").forEach(songImg => {
+    songImg.src = allSongs[currentIndex].image;
+  })
+  document.querySelectorAll(".songNames").forEach(songName => {
+    songName.textContent = allSongs[currentIndex].title;
+  })
+  document.querySelectorAll(".artistNames").forEach(artistName => {
+    artistName.textContent = allSongs[currentIndex].artist;
+  })
+}
+
+function timeFnc() {
+  let minTime = parseInt(Math.floor(audioElement.currentTime / 60));
+  let secTime = parseInt(Math.floor(audioElement.currentTime % 60));
+
+  minTime < 10 ? minTime = `0${minTime}` : minTime = minTime;
+  secTime < 10 ? secTime = `0${secTime}` : secTime = secTime;
+
+  let dmt = parseInt(Math.floor(audioElement.duration / 60));
+  let dst = parseInt(Math.floor(audioElement.duration % 60));
+  dmt < 10 ? dmt = `0${dmt}` : dmt = dmt;
+  dst < 10 ? dst = `0${dst}` : dst = dst;
+  if (minTime || secTime || dmt || dst) {
+    document.querySelector(".cTimePara").textContent = `${minTime}:${secTime}`;
+    document.querySelector(".dTimePara").textContent = `${dmt}:${dst}`;
+  }
+}
 
 function rangeBarFnc() {
-  const rangeBar = document.querySelector(".rangeBar");
+  const rangeBars = document.querySelectorAll(".rangeBar");
   audioElement.addEventListener("timeupdate", () => {
-    rangeBar.value = (audioElement.currentTime / audioElement.duration) * 100;
-    const progressBar = document.querySelector(".progress");
-    progressBar.style.width = rangeBar.value + "%";
-    if (audioElement.currentTime == (audioElement.duration)) {
-      if ((currentIndex + 1) < songBoxesLength) {
-        audioElement.src = allSongs[currentIndex + 1].song;
-        songImg.src = allSongs[currentIndex + 1].image;
-        songNamePara.textContent = allSongs[currentIndex + 1].title;
-        artistNamePara.textContent = allSongs[currentIndex + 1].artist;
-        isPlay = true;
-        playFnc();
-        currentIndex += 1;
+    timeFnc();
+    rangeBars.forEach(rangeBar => {
+
+      rangeBar.value = (audioElement.currentTime / audioElement.duration) * 100;
+      document.querySelectorAll(".progress").forEach(progressBar => {
+        progressBar.style.width = rangeBar.value + "%";
+      })
+
+      if (audioElement.currentTime == (audioElement.duration)) {
+        if ((currentIndex + 1) < songBoxesLength) {
+          audioElement.src = allSongs[currentIndex + 1].song;
+          updateAll(currentIndex + 1);
+          isPlay = true;
+          playFnc();
+          currentIndex += 1;
+        }
       }
-    }
+      rangeBar.addEventListener("input", () => {
+        audioElement.currentTime = rangeBar.value * audioElement.duration / 100;
+      })
+    })
   })
-  rangeBar.addEventListener("input", () => {
-    audioElement.currentTime = rangeBar.value * audioElement.duration / 100;
-  })
+
 }
 
 // playlist boxes
@@ -111,8 +149,8 @@ for (let i = 0; i < today.length; i++) {
 function getPlstIndex() {
   plstBoxes.forEach((box, index) => {
     box.addEventListener("click", (e) => {
-      document.querySelector(".homePage").style.display = "none";
-      document.querySelector(".songPage").style.display = "flex";
+      homePage.style.display = "none";
+      songPage.style.display = "flex";
       makeSongPage(playlist[index].type, index);
     })
   })
@@ -180,22 +218,15 @@ function onSongBoxClick() {
       }, 1)
       audioSrc = allSongs[index].song;
       audioElement.src = audioSrc;
-      superBtn.classList.remove("fa-play");
-      superBtn.classList.add("fa-pause");
-      
+      playFnc()
+
       upFooterBtn.classList.remove("fa-play");
       upFooterBtn.classList.add("fa-pause");
-      
+
       audioElement.play();
       isPlay = true;
       rangeBarFnc()
-      songImg.src = allSongs[currentIndex].image;
-      songNamePara.textContent = allSongs[currentIndex].title;
-      artistNamePara.textContent = allSongs[currentIndex].artist;
-      upFooterImg.src = allSongs[currentIndex].image;
-      upFooterTitle.textContent = allSongs[currentIndex].title;
-      upFooterArtist.textContent = allSongs[currentIndex].artist;
-
+      updateAll(currentIndex);
       songBoxes = [];
       btnPlayPause();
     })
@@ -210,41 +241,78 @@ function refresh(index) {
 
 
 function playFnc() {
-  superBtn.classList.remove("fa-circle-play");
-  superBtn.classList.add("fa-circle-pause");
+  superBtn1.classList.remove("fa-circle-play");
+  superBtn1.classList.add("fa-circle-pause");
+  superBtn2.classList.remove("fa-circle-play");
+  superBtn2.classList.add("fa-circle-pause");
+  upFooterBtn.classList.remove("fa-play");
+  upFooterBtn.classList.add("fa-pause");
   audioElement.play();
 }
 
 function pauseFnc() {
-  superBtn.classList.remove("fa-circle-pause");
-  superBtn.classList.add("fa-circle-play");
+  superBtn1.classList.remove("fa-circle-pause");
+  superBtn1.classList.add("fa-circle-play");
+  superBtn2.classList.remove("fa-circle-pause");
+  superBtn2.classList.add("fa-circle-play");
+  upFooterBtn.classList.remove("fa-pause");
+  upFooterBtn.classList.add("fa-play");
   audioElement.pause();
 }
 
 function btnPlayPause() {
-  superBtn.addEventListener("click", () => {
-    if (isPlay) {
-      pauseFnc();
-      setTimeout(() => {
-        isPlay = false;
-      }, 100)
-    }
-    else {
-      playFnc()
-      setTimeout(() => {
-        isPlay = true;
-      }, 100)
-    }
+  let btns = [superBtn1, superBtn2, upFooterBtn];
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (isPlay) {
+        pauseFnc();
+        setTimeout(() => {
+          isPlay = false;
+        }, 100)
+      }
+      else {
+        playFnc()
+        setTimeout(() => {
+          isPlay = true;
+        }, 100)
+      }
+    })
   })
 }
 
+upFooterBtn.addEventListener("click", () => {
+  if (isPlay) {
+    btn.classList.remove("fa-pause");
+    btn.classList.add("fa-play");
+    audioElement.pause();
+    setTimeout(() => {
+      isPlay = false;
+    }, 100)
+  }
+  else {
+    btn.classList.remove("fa-play");
+    btn.classList.add("fa-pause");
+    audioElement.play();
+    setTimeout(() => {
+      isPlay = true;
+    }, 100)
+  }
+})
+
+
+
 function getBackHome() {
-  document.querySelector(".songPage").style.display = "none";
-  document.querySelector(".homePage").style.display = "flex";
+  songPage.style.display = "none";
+  homePage.style.display = "flex";
 }
 document.querySelector(".songPageBackBtn").addEventListener("click", getBackHome);
 document.querySelector(".leftBox .iconBox .houseBtn").addEventListener("click", getBackHome);
-
+document.querySelector(".footerCon .footer .houseBtn").addEventListener("click", getBackHome);
+document.querySelector(".phoneSongPage .row .fa-angle-down").addEventListener("click", () => {
+  phoneSongPage.style.display = "none";
+  footerCon.style.display = "inline";
+  getBackHome();
+});
 
 
 upFooterBtn.addEventListener("click", (e) => {
@@ -265,3 +333,18 @@ upFooterBtn.addEventListener("click", (e) => {
     }, 100)
   }
 });
+
+const btns = Array.from(document.querySelectorAll(".btn"));
+btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    event.stopPropagation();
+  })
+})
+
+document.querySelector(".upFooter").addEventListener("click", () => {
+  homePage.style.display = "none";
+  songPage.style.display = "none";
+  footerCon.style.display = "none";
+  phoneSongPage.style.display = "flex";
+
+})
