@@ -23,7 +23,7 @@
         <p>Your Library</p>
       </div>
       <div class="row"><i class="fa-brands fa-spotify"></i>
-        <p>Premimum</p>
+        <p>Premium</p>
       </div>
     </div>
     <div class="leftSongBox">
@@ -32,7 +32,7 @@
         <input type="range" min="0" max="100" value="1" class="rangeBar">
       </div>
       <div class="upRow">
-        <img alt="image">
+        <img src="path/to/your/image.jpg" alt="image">
         <div class="infoBox">
           <p class="songNamePara ellips">Phir Kabhi</p>
           <p class="artistNamePara ellips" style="font-size: 0.8rem; color:#A8A8A8;">Arijit Singh</p>
@@ -41,74 +41,113 @@
       </div>
       <div class="downRow">
         <i class="fa-solid fa-backward-step"></i>
-        <i class="fa-solid fa-circle-play superBtn"></i>
+        <i class="fa-solid fa-circle-play superBtn1"></i>
         <i class="fa-solid fa-forward-step"></i>
       </div>
     </div>
   </div>
   <div class="rightBox">
-    <div class="homePage">
-      <nav>
-        <div class="navBtn sIcon"><b>S</b></div>
-        <div class="navBtn" style="background-color: #21D801;">All</div>
-        <div class="navBtn">Musics</div>
-        <div class="navBtn">Prodcasts</div>
-      </nav>
-      <div class="scrollArea">
-        <div class="playlistCon"></div>
-        <h2>Jump backin</h2>
-        <div class="horizontalScroll backinCon"></div>
-        <h2 style="margin-top: 1rem;">Recomended for Today</h2>
-        <div class="horizontalScroll todayCon">
-        </div>
-      </div>
-    </div>
-
-    <div class="songPage">
-      <div class="songPageNav">
-        <i class="fa-solid fa-arrow-left songPageBackBtn"></i>
-        <span>Lofi songs</span>
-      </div>
-      <div class="songScrollCon">
-        <div class="topBox">
-          <img alt="image">
-          <div class="songInfoCon">
-            <h1>Lofi songs (sukoon vibes)<h1>
-                <p>Here is some descriptions about this playlist if you love this playlist add it to like playlist hello my name is saurav kumar</p>
+    <div class="midBox">
+      <div class="homePage">
+        <nav>
+          <div class="navBtn sIcon"><b>S</b></div>
+          <div class="navBtn" style="background-color: #21D801;">All</div>
+          <div class="navBtn">Musics</div>
+          <div class="navBtn">Podcasts</div>
+        </nav>
+        <div class="scrollArea">
+          <div class="playlistCon"></div>
+          <h2>Jump back in</h2>
+          <div class="horizontalScroll backinCon"></div>
+          <h2 style="margin-top: 1rem;">Recommended for Today</h2>
+          <div class="horizontalScroll todayCon">
           </div>
         </div>
-        <div class="songBoxCon"></div>
       </div>
-    </div>
 
-
-    <div class="upFooter">
-      <img alt="img">
-      <dvi class="upFooterInfo">
-        <div>
-          <p class="upFooterTitle">Kaun Tujhe yu pyar karaga</p>
-          <p class="upFooterArtist">Arijit Singh</p>
+      <div class="songPage">
+        <div class="songPageNav">
+          <i class="fa-solid fa-arrow-left songPageBackBtn"></i>
+          <span>Lofi songs</span>
         </div>
-        <i style="margin-right: 1rem;" class="fa-solid fa-play superBtn2"></i>
-      </dvi>
+        <div class="songScrollCon">
+          <div class="topBox">
+            <img src="path/to/your/image.jpg" alt="image">
+            <div class="songInfoCon">
+              <h1>Lofi songs (sukoon vibes)</h1>
+              <p>Here is some description about this playlist. If you love this playlist, add it to your liked playlist.</p>
+            </div>
+          </div>
+          <div class="songBoxCon"></div>
+        </div>
+      </div>
+      <div class="phoneSongPage">
+        <div class="row">
+          <i class="fa-solid fa-angle-down"></i>
+          <p>Lofi love songs</p>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <div class="phoneMidBox">
+          <div class="imgBox">
+            <img src="/SpotifyClone/img/img10.jpeg" class="songImages" alt="img">
+          </div>
+          <div class="bottomCon">
+            <div class="info">
+              <p class="songNamePara dotted songNames">Here is the name of Song</p>
+              <p class="artistNamePara dotted artistNames">Name of artist</p>
+            </div>
+            <div>
+              <div class="range-bar">
+                <div class="progress" style="background: white;"></div>
+                <input type="range" min="0" max="100" value="1" class="rangeBar">
+              </div>
+            </div>
+            <div class="timeBox">
+              <p class="cTimePara">00:00</p>
+              <p class="dTimePara">00:00</p>
+            </div>
+            <div class="downRow">
+              <div class="iconBox">
+                <i class="fa-solid fa-backward-step"></i>
+                <i class="fa-solid fa-circle-play superBtn2"></i> <!-- Removed trailing space -->
+                <i class="fa-solid fa-forward-step"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="footer">
-      <div class="column houseBtn"><i class="fa-solid fa-house"></i>
-        <p>Home</p>
+    <div class="footerCon">
+      <div class="upFooter">
+        <img class="songImages" src="path/to/your/image.jpg" alt="img">
+        <div class="upFooterInfo">
+          <div>
+            <p class="upFooterTitle songNames">Kaun Tujhe Yu Pyar Karega</p>
+            <p class="upFooterArtist artistNames">Arijit Singh</p>
+          </div>
+          <i style="margin-right: 1rem;" class="fa-solid fa-play upFooterBtn btn"></i>
+        </div>
       </div>
-      <div class="column"><i class="fa-solid fa-magnifying-glass"></i>
-        <p>Search</p>
-      </div>
-      <div class="column"><i class="fa-brands fa-playstation"></i>
-        <p>Library</p>
-      </div>
-      <div class="column"><i class="fa-brands fa-spotify"></i>
-        <p>Premimum</p>
+      <div class="footer">
+        <div class="column houseBtn"><i class="fa-solid fa-house"></i>
+          <p>Home</p>
+        </div>
+        <div class="column"><i class="fa-solid fa-magnifying-glass"></i>
+          <p>Search</p>
+        </div>
+        <div class="column"><i class="fa-brands fa-playstation"></i>
+          <p>Library</p>
+        </div>
+        <div class="column"><i class="fa-brands fa-spotify"></i>
+          <p>Premium</p>
+        </div>
       </div>
     </div>
+
+
+
   </div>
-
-
 
   <script src="data.js"></script>
   <script src="script.js"></script>
