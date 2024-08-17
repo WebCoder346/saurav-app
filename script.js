@@ -1,10 +1,11 @@
 let plstBoxes = [];
 let songBoxes = [];
 let allSongs = [];
+let freshMusicBoxes = [];
 let currentIndex;
 let songBoxesLength;
 let isPlay = false;
-let songType = "";
+let songType;
 const songPage = document.querySelector(".songPage")
 const homePage = document.querySelector(".homePage")
 const superBtn1 = document.querySelector(".superBtn1");
@@ -21,16 +22,23 @@ const upFooterBtn = document.querySelector(".upFooterBtn")
 const phoneSongPage = document.querySelector(".phoneSongPage");
 
 // Default song container functionality
+
 let audioSrc = defaultSong.song;
 audioElement.src = audioSrc;
-songImg.src = defaultSong.image;
-songNamePara.textContent = defaultSong.title;
-artistNamePara.textContent = defaultSong.artist;
-upFooterImg.src = defaultSong.image;
-upFooterTitle.textContent = defaultSong.title;
-upFooterArtist.textContent = defaultSong.artist;
+document.querySelectorAll(".songImages").forEach(songImg => {
+  songImg.src = defaultSong.image;
+})
+document.querySelectorAll(".songNames").forEach(songName => {
+  songName.textContent = defaultSong.title;
+})
+document.querySelectorAll(".artistNames").forEach(artistName => {
+  artistName.textContent = defaultSong.artist;
+})
+
+
 btnPlayPause();
 rangeBarFnc();
+
 // rangebar
 function updateAll(currentIndex) {
   document.querySelectorAll(".songImages").forEach(songImg => {
@@ -93,6 +101,7 @@ function rangeBarFnc() {
 for (let i = 0; i < playlist.length; i++) {
   const plstBox = document.createElement("div");
   plstBox.className = "playlistBox";
+  plstBox.classList.add("plstBoxes");
   const plstImg = document.createElement("img");
   plstImg.src = playlist[i].image;
   const songName = document.createElement("p");
@@ -105,6 +114,40 @@ for (let i = 0; i < playlist.length; i++) {
   plstBoxes.push(plstBox);
 }
 
+//fresh music
+
+for (let i = 0; i < freshData.length; i++) {
+  const freshDiv = document.createElement("div");
+  freshDiv.className = "freshBox";
+  freshDiv.classList.add("hzScrollBox")
+  const freshImg = document.createElement("img");
+  freshImg.src = freshData[i].image;
+  freshImg.alt = "image";
+
+  const freshP = document.createElement("p");
+  freshP.style.textAlign = "center";
+  freshP.style.fontWeight = "bold";
+  freshP.textContent = freshData[i].title;
+
+  freshDiv.appendChild(freshImg);
+  freshDiv.appendChild(freshP);
+  document.querySelector(".freshCon").appendChild(freshDiv);
+  freshMusicBoxes.push(freshDiv);
+  freshBoxClick()
+}
+//on clicking freshPlaylist
+function freshBoxClick() {
+  let freshBoxes = document.querySelectorAll(".freshBox");
+  freshBoxes.forEach((box, index) => {
+    box.addEventListener("click", () => {
+      homePage.style.display = "none";
+      songPage.style.display = "flex";
+      console.log(freshData[index].type);
+      makeSongPage(freshData[index].type, index, freshData);
+
+    })
+  })
+}
 // backin boxes
 for (let i = 0; i < backInData.length; i++) {
   const backInDiv = document.createElement("div");
@@ -147,23 +190,24 @@ for (let i = 0; i < today.length; i++) {
 
 // on clicking playlist boxes
 function getPlstIndex() {
-  plstBoxes.forEach((box, index) => {
+  const playlistBoxes = document.querySelectorAll(".plstBoxes");
+  playlistBoxes.forEach((box, index) => {
     box.addEventListener("click", (e) => {
       homePage.style.display = "none";
       songPage.style.display = "flex";
-      makeSongPage(playlist[index].type, index);
+      makeSongPage(playlist[index].type, index, playlist);
     })
   })
 }
 getPlstIndex()
 
-function makeSongPage(plstType, plstIndex) {
+function makeSongPage(plstType, plstIndex, dataName) {
   songBoxes = [];
   const songBoxCon = document.querySelector(".songBoxCon")
   songBoxCon.innerHTML = "";
-  document.querySelector(".songPageNav span").textContent = playlist[plstIndex].title;
-  document.querySelector(".songInfoCon h1").textContent = playlist[plstIndex].title;
-  document.querySelector(".songPage .topBox img").src = playlist[plstIndex].image;
+  document.querySelector(".songPageNav span").textContent = dataName[plstIndex].title;
+  document.querySelector(".songInfoCon h1").textContent = dataName[plstIndex].title;
+  document.querySelector(".songPage .topBox img").src = dataName[plstIndex].image;
   for (let i = 0; i < data.length; i++) {
     if (data[i].type.includes(plstType)) {
       const songBox = document.createElement('div');
@@ -310,8 +354,9 @@ document.querySelector(".leftBox .iconBox .houseBtn").addEventListener("click", 
 document.querySelector(".footerCon .footer .houseBtn").addEventListener("click", getBackHome);
 document.querySelector(".phoneSongPage .row .fa-angle-down").addEventListener("click", () => {
   phoneSongPage.style.display = "none";
+  homePage.style.display = "noen";
   footerCon.style.display = "inline";
-  getBackHome();
+  songPage.style.display = "flex";
 });
 
 
