@@ -247,6 +247,7 @@ body {
 }
 
 .songPageBackBtn {
+  padding-top: 0.5rem;
   height: 2rem;
   width: 2rem;
 }
@@ -325,7 +326,7 @@ body {
 
 .upFooter {
   padding: 0.2rem 0.5rem;
-  margin:0 0.5rem;
+  margin: 0 0.5rem;
   display: none;
   background-color: #9F4503;
   border-radius: 8px;
@@ -389,36 +390,41 @@ body {
   margin-top: 5px;
   text-shadow: 4px 4px 10px black;
 }
-.phoneSongPage{
-  height:100vh;
+
+.phoneSongPage {
+  height: 100vh;
   width: 100vw;
   background: linear-gradient(to bottom, #6200BC, #B667FF, #534C59);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.phoneSongPage .row{
+
+.phoneSongPage .row {
   display: flex;
   justify-content: space-between;
-  padding:1rem;
+  padding: 1rem;
   width: 100%;
 }
-.phoneMidBox{
-  width:80%;
+
+.phoneMidBox {
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height:90%;
+  height: 90%;
 }
-.phoneSongPage .phoneMidBox .imgBox{
-  height:50%;
+
+.phoneSongPage .phoneMidBox .imgBox {
+  height: 50%;
   display: flex;
   justify-content: center;
   padding-top: 2rem;
 }
+
 .phoneSongPage .imgBox img {
-  height:100%;
-  width:auto;
+  height: 100%;
+  width: auto;
 }
 
 .phoneSongPage .bottomCon {
@@ -438,7 +444,7 @@ body {
 .phoneSongPage .bottomCon .info .artistNamePara {
   width: 100%;
   font-size: 0.9rem;
-  color: #BBBBBB; 
+  color: #BBBBBB;
 }
 
 .phoneSongPage .bottomCon .rangeBar {
@@ -459,7 +465,8 @@ body {
   border-radius: 50%;
   background-color: white;
   cursor: pointer;
-  appearance: none; /* Consider adding vendor prefixes */
+  appearance: none;
+  /* Consider adding vendor prefixes */
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -494,6 +501,9 @@ body {
   font-size: 2.4rem;
 }
 
+.horizontalScroll {
+  margin-bottom: 1rem;
+}
 
 
 @media (max-width: 600px) {
@@ -593,9 +603,18 @@ body {
     border-radius: 3px;
   }
 
+  .songBoxCon .songBox .aboutSong {
+    width: 100%;
+  }
+
+  .songBoxCon .songBox .songInfo {
+    width: 100%;
+    overflow: hidden;
+  }
+
   .songBoxCon .songBox .songInfo .songTitle {
     font-size: 0.9rem;
-    width: 98%;
+    max-width: 90%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -603,9 +622,14 @@ body {
 
   .songBoxCon .songBox .songInfo .singerName {
     font-size: 0.7rem;
+    max-width: 90%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .homePage {
+    padding-bottom: 0;
   }
 }
 
@@ -743,6 +767,7 @@ body {
   /* width: 350px; */
   position: relative;
 }
+
 /* .midBox{
   height:100%;
   width:100%;
@@ -753,6 +778,7 @@ body {
 .footerCon {
   /* display: none; */
 }
-.phoneSongPage{
+
+.phoneSongPage {
   display: none;
 }
