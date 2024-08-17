@@ -17,36 +17,51 @@ const data = [
     song: "song2.mp3",
     title: "Jab Tak",
     artist: "Armaan Malik",
-    type: ["msd"],
+    type: ["msd", 'arijit'],
+
   },
-  
+  {
+    image: "img3.jpeg",
+    song: "song3.mp3",
+    title: "Kaun Tujhe",
+    artist: "Palak Muchhal",
+    type: ["msd", 'arijit'],
+
+  },
   {
     image: "img1.jpeg",
     song: "song4.mp3",
     title: "Pahle Bhi Mai",
     artist: "Paarmish Verma, PARDHAAN, Sadhana Sargam",
-    type: ["lofi","love"],
+    type: ["lofi"],
+
   },
   {
     image: "img3.jpeg",
     song: "song5.mp3",
     title: "Phir Kabhi",
     artist: "Arijit Singh",
-    type: ["msd","arijit"],
+    type: ["msd", 'arijit'],
+
   },
+
+
+
   {
     image: "img1.jpeg",
     song: "song6.mp3",
     title: "Saari Duniya Jalaa Denga",
     artist: "Jaani, B Araak",
     type: ["arijit", "lofi"],
+
   },
   {
     image: "img2.jpeg",
     song: "song7.mp3",
     title: "Hasi-Male version",
     artist: "Ami Mishra",
-    type: ["lofi","love", "arijit"],
+    type: ["lofi", "arijit"],
+
   },
   {
     image: "img10.jpeg",
@@ -54,6 +69,7 @@ const data = [
     title: "Aam Jahe Munde",
     artist: "Parmish Verma",
     type: ["punjabi"],
+
   },
   {
     image: "img9.jpeg",
@@ -61,48 +77,80 @@ const data = [
     title: "Daku",
     artist: "Chani Nattan,Shidu",
     type: ["punjabi"],
+
   },
   {
     image: "img11.jpeg",
     song: "song10.mp3",
     title: "Ve Kamleya-Lofi",
     artist: "Deepanshu, Arijit Singh",
-    type: ["love", "arijit","msd"],
+    type: ["lofi", "arijit"],
+
   },
   {
     image: "img4.jpeg",
     song: "song11.mp3",
     title: "Phir Bhi Tumko Chaahuga",
     artist: "Arijit Singh",
-    type: ["arijit", "lofi","love"],
-  },
-  {
-    image: "img6.jpeg",
-    song: "song12.mp3",
-    title: "Asal Mein",
-    artist: "Darshan Raval",
-    type: ["lofi"],
+    type: ["arijit", "lofi"],
+
   },
   {
     image: "img7.jpeg",
-    song: "song13.mp3",
-    title: "Tere Sang Yarra",
-    artist: "Atif Aslam, Manoj Muntashir",
-    type: ["arijit", "lofi", "love"],
+    song: "song12.mp3",
+    title: "Tere Sang Yara",
+    artist: "Atif Aslam",
+    type: ["lofi"],
+
   },
   {
-    image: "img3.jpeg",
-    song: "song3.mp3",
-    title: "Kaun Tujhe",
-    artist: "Palak Muchhal",
-    type: ["msd","lofi"],
+    image: "img6.jpeg",
+    song: "song13.mp3",
+    title: "Asal Mein",
+    artist: "Darshan Raval",
+    type: ["lofi"],
+
   },
+  {
+    image: "img14.jpeg",
+    song: "song14.mp3",
+    title: "Baarish",
+    artist: "Shashaa Tirupati",
+    type: ["relax"],
+
+  },
+  {
+    image: "img15.jpeg",
+    song: "song15.mp3",
+    title: "Believer",
+    artist: "Imagine Dragons",
+    type: ["motivation"],
+  },
+  {
+    image: "img16.jpeg",
+    song: "song16.mp3",
+    title: 'Heer Aasani(From "fighter"',
+    artist: "B Praak, Vishal Dadlani",
+    type: ["motivation", "lofi"],
+
+  },
+  {
+    image: "img17.jpeg",
+    song: "song17.mp3",
+    title: "Unstoppable",
+    artist: "Sia",
+    type: ["motivation"],
+
+  },
+
+
+
 ]
 
 const playlist = [
   {
     image: "img5.jpeg",
-    title: "Lofi Songs (sukoon vibes)💜",
+    title: "Lofi Songs (sukoon vibes)",
     type: "lofi",
   },
   {
@@ -119,7 +167,7 @@ const playlist = [
     image: "img4.jpeg",
     title: "The Arijit Singh Cool",
     type: "arijit"
-  },
+  }
 ]
 const today = [
   {
@@ -144,5 +192,18 @@ const backInData = [
   {
     image: "img6.jpeg",
     title: "Chill-Love Songs",
-  },
+  }
+
 ]
+const freshData = [
+  {
+    image: "img18.jpeg",
+    title: "Top motivation",
+    type: "motivation",
+  },
+  {
+    image: "img19.jpeg",
+    title: "Mind Relax",
+    type: "relax",
+  },
+ ]
