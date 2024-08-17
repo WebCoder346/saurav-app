@@ -142,6 +142,41 @@ const data = [
     type: ["motivation"],
 
   },
+{
+    image: "img22.jpeg",
+    song: "song18.mp3",
+    title: "Soulmte",
+    artist: "Badshah, Arijit Singh",
+    type: ["motivation"],
+  },
+  {
+    image: "img23.jpeg",
+    song: "song19.mp3",
+    title: "Dekhte Dekhte",
+    artist: "Atif Aslam",
+    type: ["relax","lofi"],
+  },
+  {
+    image: "img20.jpeg",
+    song: "song20.mp3",
+    title: "Uska Hi Banana",
+    artist: "Arijit Singh",
+    type: ["relax"],
+  },
+  {
+    image: "img21.jpeg",
+    song: "song21.mp3",
+    title: 'Meree_E_Ishaq(from "Zid")',
+    artist: "Shaarib Toshi, Arijit Singh",
+    type: ["relax"],
+  },
+  {
+    image: "img24.jpeg",
+    song: "song22.mp3",
+    title: "Soni Soni",
+    artist: "Darshan Raval",
+    type: ["lofi"],
+  },
 
 
 
