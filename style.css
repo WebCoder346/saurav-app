@@ -1,6 +1,3 @@
-/* screen>min===true;
-screen<max===true; */
-
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +7,6 @@ screen<max===true; */
 
 html,
 body {
-  /* overflow: hidden; */
   height: 100vh;
   width: 100vw;
   background-color: black;
@@ -143,7 +139,7 @@ body {
 
 .scrollArea {
   overflow-x: scroll;
-  height: 90%;
+  height: 80vh;
   margin-top: 1.5rem;
 }
 
@@ -222,6 +218,12 @@ body {
 .songPage .topBox img {
   width: 13rem;
   height: 13rem;
+}
+
+.dotted {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .songBoxCon {
@@ -312,18 +314,10 @@ body {
 }
 
 .midBox {
-  height: 80%;
+  height: 100%;
 }
 
 /* footer styling */
-.footer {
-  display: flex;
-  flex-direction: column;
-  /* border: 2px solid green; */
-  width: 100%;
-  /* background: linear-gradient(to top, #000000, #37373780); */
-}
-
 .upFooter {
   padding: 0.2rem 0.5rem;
   margin: 0 0.5rem;
@@ -339,7 +333,6 @@ body {
 }
 
 .upFooter .upFooterInfo {
-  /* border:2px solid blue; */
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -349,7 +342,6 @@ body {
 
 .upFooter .upFooterInfo .upFooterTitle {
   font-size: 0.8rem;
-
 }
 
 .upFooter .upFooterInfo .upFooterArtist {
@@ -357,20 +349,13 @@ body {
   color: #B5B5B5;
 }
 
-/* .footer {
-  
- border:2px solid red;
-  height: 5rem;
-  display: flex;
-} */
 .footer {
-  /* border:2px solid blue; */
-  display: flex;
-  flex-direction: row;
+  display: none;
   justify-content: space-between;
   padding: 1rem;
   background: linear-gradient(to top, #000000, #111110);
   height: 10%;
+  width: 100%;
 }
 
 .footer .column {
@@ -466,7 +451,6 @@ body {
   background-color: white;
   cursor: pointer;
   appearance: none;
-  /* Consider adding vendor prefixes */
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -749,29 +733,22 @@ body {
   .upFooterShow {
     display: flex;
   }
-}
 
-/* 
-.homePage {
-  display: none;
-}
+  .scrollArea {
+    height: 90%;
+  }
 
-.songPage {
-  display: flex;
-} */
+  .midBox {
+    height: 80%;
+  }
+}
 
 .rightBox {
-  /* border: 2px solid green; */
   height: 100%;
   /* height: 600px; */
   /* width: 350px; */
   position: relative;
 }
-
-/* .midBox{
-  height:100%;
-  width:100%;
-} */
 
 .homePage,
 .songPage,
