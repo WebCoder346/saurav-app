@@ -120,13 +120,13 @@ const data = [
 
   },
   {
-    image: "img15.jpeg",
-    song: "song15.mp3",
-    title: "Believer",
-    artist: "Imagine Dragons",
+    image: "img22.jpeg",
+    song: "song18.mp3",
+    title: "Soulmte",
+    artist: "Badshah, Arijit Singh",
     type: ["motivation"],
   },
-  {
+{
     image: "img16.jpeg",
     song: "song16.mp3",
     title: 'Heer Aasani(From "fighter"',
@@ -135,19 +135,20 @@ const data = [
 
   },
   {
+    image: "img15.jpeg",
+    song: "song15.mp3",
+    title: "Believer",
+    artist: "Imagine Dragons",
+    type: ["motivation"],
+  },
+  
+  {
     image: "img17.jpeg",
     song: "song17.mp3",
     title: "Unstoppable",
     artist: "Sia",
     type: ["motivation"],
 
-  },
-{
-    image: "img22.jpeg",
-    song: "song18.mp3",
-    title: "Soulmte",
-    artist: "Badshah, Arijit Singh",
-    type: ["motivation"],
   },
   {
     image: "img23.jpeg",
