@@ -398,6 +398,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 80%;
+  border: 2px solid red;
 }
 
 .phoneSongPage .phoneMidBox .imgBox {
