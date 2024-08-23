@@ -68,7 +68,7 @@ const data = [
     song: "song8.mp3",
     title: "Aam Jahe Munde",
     artist: "Parmish Verma",
-    type: ["punjabi"],
+    type: ["punjabi","lofi"],
 
   },
   {
