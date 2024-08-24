@@ -178,6 +178,13 @@ const data = [
     artist: "Darshan Raval",
     type: ["lofi"],
   },
+  {
+    image: "img25.jpeg",
+    song: "song23.mp3",
+    title: "O Saathi",
+    artist: "Atif Aslam, Manoj Bajpayee",
+    type: ["relax","lofi"],
+  },
 
 
 
