@@ -454,3 +454,22 @@ window.addEventListener("keydown", (e) => {
     changeScreen();
   }
 });
+
+
+window.onload = function() {
+  // Push a state to history when the page loads
+  history.pushState(null, null, window.location.href);
+  
+  window.onpopstate = function(event) {
+    event.preventDefault(); // Stop default behavior
+    var userResponse = confirm("Are you sure you want to quit listning musics 🎶?");
+    if (userResponse) {
+      history.back(); // Allows the back navigation
+    } else {
+      // If not, push the state again to prevent back navigation
+      history.pushState(null, null, window.location.href);
+    }
+  };
+};
+
+
