@@ -422,4 +422,35 @@ document.querySelector(".upFooter").addEventListener("click", () => {
   footerCon.style.display = "none";
   phoneSongPage.style.display = "flex";
 
+});
+
+
+// screen resize funcanalioty
+document.querySelector(".alertBox .x").addEventListener("click", () => {
+  document.querySelector(".alertBox").style.display = "none";
+  document.querySelector(".body").style.filter = "none";
 })
+document.querySelector(".alertBox button").addEventListener("click", () => {
+  document.querySelector(".alertBox").style.display = "none";
+  document.querySelector(".body").style.filter = "none";
+  changeScreen();
+})
+
+
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+// document.body.appendChild(renderer.domElement);
+function changeScreen() {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  if (!document.fullscreenElement) {
+    document.body.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+window.addEventListener("keydown", (e) => {
+  if (e.key === "f") {
+    changeScreen();
+  }
+});
