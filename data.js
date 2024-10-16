@@ -84,7 +84,7 @@ const data = [
     song: "song10.mp3",
     title: "Ve Kamleya-Lofi",
     artist: "Deepanshu, Arijit Singh",
-    type: ["lofi", "arijit"],
+    type: ["lofi", "arijit", "arijit2"],
 
   },
   {
@@ -183,7 +183,7 @@ const data = [
     song: "song23.mp3",
     title: "O Saathi",
     artist: "Atif Aslam, Manoj Bajpayee",
-    type: ["relax","lofi"],
+    type: ["relax","lofi", "relax2"],
   },
   {
     image: "img31.jpeg",
@@ -197,35 +197,35 @@ const data = [
     song: "song24.mp3",
     title: "Hawayein",
     artist: "Arijit Singh, Pritam",
-    type: ["arijit", "relax"],
+    type: ["arijit", "arijit2", "relax", "relax2"],
   },
   {
     image: "img27.jpeg",
     song: "song25.mp3",
     title: "Tujhe Kitna Chahne Lage",
     artist: "Arijit Singh, Mithoon",
-    type: ["arijit", "relax"],
+    type: ["arijit", "arijit2", "relax", "relax2"],
   },
   {
     image: "img28.jpeg",
     song: "song26.mp3",
     title: "Roke Na Ruke Naina",
     artist: "Arijit Singh",
-    type: ["arijit", "relax"],
+    type: ["arijit", "arijit2", "relax", "relax2"],
   },
   {
     image: "img29.jpeg",
     song: "song27.mp3",
     title: "Choo Lo",
     artist: "The Local Train",
-    type: ["arijit", "relax", "motivation"],
+    type: ["arijit", "arijit2", "relax", "relax2", "motivation"],
   },
   {
     image: "img30.jpeg",
     song: "song28.mp3",
     title: "Apna Bana Le",
     artist: "Arijit Singh, Sachin",
-    type: ["arijit", "relax"],
+    type: ["arijit", "arijit2", "relax", "relax2"],
   },
 
 
@@ -266,7 +266,12 @@ const backInData = [
   {
     image: "img8.jpeg",
     title: "Arijit Singh Mix",
-    type: "arijit",
+    type: "arijit2",
+  },
+  {
+    image: "img6.jpeg",
+    title: "Chill-Love Songs",
+    type: "relax2"
   },
   {
     image: "img10.jpeg",
@@ -278,11 +283,6 @@ const backInData = [
     title: "Relax-Lofi",
     type: "lofi",
   },
-  {
-    image: "img6.jpeg",
-    title: "Chill-Love Songs",
-    type: "relax"
-  }
 
 ]
 const freshData = [
