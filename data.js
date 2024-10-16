@@ -1,8 +1,8 @@
 const defaultSong = {
-  image: "img10.jpeg",
-  song: "song8.mp3",
-  title: "Aam Jahe Munde",
-  artist: "Parmish Verma",
+  image: "img31.jpeg",
+  song: "song29.mp3",
+  title: "Hanuman Chalisa",
+  artist: "Gulshan Kumar",
 }
 const data = [
   {
