@@ -2,6 +2,7 @@ let plstBoxes = [];
 let songBoxes = [];
 let allSongs = [];
 let freshMusicBoxes = [];
+// let backInBoxes = [];
 let currentIndex;
 let songBoxesLength;
 let isPlay = false;
@@ -22,7 +23,6 @@ const upFooterBtn = document.querySelector(".upFooterBtn")
 const phoneSongPage = document.querySelector(".phoneSongPage");
 
 // Default song container functionality
-
 let audioSrc = defaultSong.song;
 audioElement.src = audioSrc;
 document.querySelectorAll(".songImages").forEach(songImg => {
@@ -142,7 +142,6 @@ function freshBoxClick() {
     box.addEventListener("click", () => {
       homePage.style.display = "none";
       songPage.style.display = "flex";
-      console.log(freshData[index].type);
       makeSongPage(freshData[index].type, index, freshData);
 
     })
@@ -166,24 +165,54 @@ for (let i = 0; i < backInData.length; i++) {
   backInDiv.appendChild(backInimg);
   backInDiv.appendChild(backInP);
   document.querySelector(".backinCon").appendChild(backInDiv);
+  // backInBoxes.push(backInDiv);
+  onBackInBoxClick();
 }
-for (let i = 0; i < today.length; i++) {
+// On back in box click
+function onBackInBoxClick() {
+  let backinBoxes = document.querySelectorAll(".backinBox");
+  backinBoxes.forEach((box, index) => {
+    box.addEventListener("click", () => {
+      homePage.style.display = "none";
+      songPage.style.display = "flex";
+      makeSongPage(backInData[index].type, index, backInData);
+
+    })
+  })
+}
+
+for (let i = 0; i < todayData.length; i++) {
   const todayDiv = document.createElement("div");
   todayDiv.className = "todayBox";
   todayDiv.classList.add("hzScrollBox")
 
   const todayImg = document.createElement("img");
-  todayImg.src = today[i].image;
+  todayImg.src = todayData[i].image;
   todayImg.alt = "image";
 
   const todayP = document.createElement("p");
   todayP.style.textAlign = "center";
   todayP.style.fontWeight = "bold";
-  todayP.textContent = today[i].title;
+  todayP.textContent = todayData[i].title;
 
   todayDiv.appendChild(todayImg);
   todayDiv.appendChild(todayP);
   document.querySelector(".todayCon").appendChild(todayDiv);
+  onTodayBoxClick();
+}
+
+function onTodayBoxClick() {
+  console.log("TodayBox created");
+  let todayBoxes = document.querySelectorAll(".todayBox");
+  todayBoxes.forEach((box, index) => {
+    box.addEventListener("click", () => {
+      console.log("Hello Today")
+      homePage.style.display = "none";
+      songPage.style.display = "flex";
+      makeSongPage(todayData[index].type, index, todayData);
+
+    })
+  })
 }
 
 
@@ -348,6 +377,7 @@ upFooterBtn.addEventListener("click", () => {
 function getBackHome() {
   songPage.style.display = "none";
   homePage.style.display = "flex";
+  currentIndex = 0;
 }
 document.querySelector(".songPageBackBtn").addEventListener("click", getBackHome);
 document.querySelector(".leftBox .iconBox .houseBtn").addEventListener("click", getBackHome);
