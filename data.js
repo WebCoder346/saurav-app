@@ -185,6 +185,48 @@ const data = [
     artist: "Atif Aslam, Manoj Bajpayee",
     type: ["relax","lofi"],
   },
+  {
+    image: "img31.jpeg",
+    song: "song29.mp3",
+    title: "Hanuman Chalisa",
+    artist: "Gulsahan Kumar",
+    type: ["bhakti"],
+  },
+  {
+    image: "img26.jpeg",
+    song: "song24.mp3",
+    title: "Hawayein",
+    artist: "Arijit Singh, Pritam",
+    type: ["arijit", "relax"],
+  },
+  {
+    image: "img27.jpeg",
+    song: "song25.mp3",
+    title: "Tujhe Kitna Chahne Lage",
+    artist: "Arijit Singh, Mithoon",
+    type: ["arijit", "relax"],
+  },
+  {
+    image: "img28.jpeg",
+    song: "song26.mp3",
+    title: "Roke Na Ruke Naina",
+    artist: "Arijit Singh",
+    type: ["arijit", "relax"],
+  },
+  {
+    image: "img29.jpeg",
+    song: "song27.mp3",
+    title: "Choo Lo",
+    artist: "The Local Train",
+    type: ["arijit", "relax", "motivation"],
+  },
+  {
+    image: "img30.jpeg",
+    song: "song28.mp3",
+    title: "Apna Bana Le",
+    artist: "Arijit Singh, Sachin",
+    type: ["arijit", "relax"],
+  },
 
 
 
@@ -212,10 +254,11 @@ const playlist = [
     type: "arijit"
   }
 ]
-const today = [
+const todayData = [
   {
     image: "img13.jpeg",
-    title: "Bhakti (santi vibes)"
+    title: "Bhakti (santi vibes)",
+    type: "bhakti",
   },
 ]
 
@@ -223,18 +266,22 @@ const backInData = [
   {
     image: "img8.jpeg",
     title: "Arijit Singh Mix",
+    type: "arijit",
   },
   {
     image: "img10.jpeg",
     title: "Punjabi Hits",
+    type: "punjabi",
   },
   {
     image: "img5.jpeg",
     title: "Relax-Lofi",
+    type: "lofi",
   },
   {
     image: "img6.jpeg",
     title: "Chill-Love Songs",
+    type: "relax"
   }
 
 ]
