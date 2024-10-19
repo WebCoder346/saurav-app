@@ -297,3 +297,26 @@ const freshData = [
     type: "relax",
   },
  ]
+
+const browsingData = [
+  {
+    title: "Arijit",
+    imgSrc: "img21.jpeg",
+    background: "#830000"
+   },
+  {
+    title: "Asal",
+    imgSrc: "img6.jpeg",
+    background: "deeppink"
+   },
+  {
+    title: "Reverse",
+    imgSrc: "img5.jpeg",
+    background: "rebeccapurple"
+   },
+  {
+    title: "Action",
+    imgSrc: "img1.jpeg",
+    background: "deepskyblue"
+   },
+ ]
