@@ -1,0 +1,160 @@
+.searchPage {
+  display: none;
+  flex-direction: column;
+  justify-content: none;
+  align-items: none;
+}
+
+.searchHomePage {
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.searchPage .topRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.searchPage .sIcon {
+  background: deepskyblue;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchPage .inputBox {
+  background: white;
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.searchPage .inputBox h5 {
+  color: black;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.browsingCon {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.browsingCon .browsingBox {
+  height: 3.5rem;
+  width: 10rem;
+  background: deeppink;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  color: #830000;
+  margin-bottom: 1rem;
+}
+
+.browsingCon .browsingBox p {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-left: 0.8rem;
+}
+
+.browsingCon .browsingBox img {
+  height: 3.8rem;
+  width: 3.8rem;
+  border-radius: 0.3rem;
+  float: bottom;
+  transform: rotate(30deg);
+  margin-top: 0.8rem;
+}
+
+.searchAreaPage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.searchAreaPage .topRow {
+  background: #484848;
+  height: 3rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.searchAreaPage .topRow .searchBox {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  font-weight: 400;
+  width: 100%;
+}
+
+.recentSongCon {
+  width: 100%;
+  height: 90vh;
+  padding: 0 1rem;
+  overflow: scroll;
+}
+
+.recentSongBox {
+  height: 3.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.recentSongBox img {
+  height: 3.5rem;
+  width: 3.5rem;
+  margin-right: 1rem;
+  border-radius: 0.3rem;
+}
+
+.recentSongBox .songInfoBox {
+  height: 3.5rem;
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recentSongBox .fa-xmark {
+  font-size: 1.1rem;
+}
+
+.recentSongBox .songInfoBox span {
+  font-size: 0.8rem;
+  color: #D0D0D0;
+}
+
+.notFound {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.libraryPage{
+  display: none;
+}

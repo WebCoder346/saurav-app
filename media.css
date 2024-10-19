@@ -1,0 +1,264 @@
+@media (max-width: 600px) {
+  .rightBox {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .leftBox {
+    display: none;
+  }
+
+  .homePage nav {
+    width: 70%;
+  }
+
+  .homePage nav .navBtn {
+    font-size: 0.6rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .homePage nav .sIcon {
+    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .playlistCon {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .playlistCon .playlistBox {
+    width: 45%;
+    margin-right: 0.5rem;
+    height: 3rem;
+  }
+
+  .playlistCon .playlistBox .songName {
+    height: 100%;
+    font-size: 1rem;
+    font-size: 0.9rem;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+
+  .playlistCon .playlistBox img {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .horizontalScroll .hzScrollBox {
+    height: 12rem;
+    width: 10rem;
+    margin-right: 2rem;
+  }
+
+  .horizontalScroll .hzScrollBox img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5px;
+  }
+
+  .songPage .songPageNav {
+    height: 2.5rem;
+  }
+
+  .songPage .songPageNav span {
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+
+  .songPage .songScrollCon .topBox img {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  .songScrollCon .topBox .songInfoCon h1 {
+    font-size: 1.2rem;
+  }
+
+  .songScrollCon .topBox .songInfoCon p {
+    font-size: 0.7rem;
+  }
+
+  .songBoxCon .songBox img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 3px;
+  }
+
+  .songBoxCon .songBox .aboutSong {
+    width: 100%;
+  }
+
+  .songBoxCon .songBox .songInfo {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .songBoxCon .songBox .songInfo .songTitle {
+    font-size: 0.9rem;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .songBoxCon .songBox .songInfo .singerName {
+    font-size: 0.7rem;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .homePage {
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .rightBox {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .leftBox {
+    display: none;
+  }
+
+  .homePage nav .navBtn {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+  }
+
+  .homePage nav .sIcon {
+    font-size: 1rem;
+  }
+
+  .playlistCon {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .playlistCon .playlistBox {
+    width: 45%;
+    margin-right: 0.5rem;
+    height: 3rem;
+  }
+
+  .playlistCon .playlistBox .songName {
+    height: 100%;
+    font-size: 1rem;
+    font-size: 0.9rem;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+
+  .playlistCon .playlistBox img {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .horizontalScroll .hzScrollBox {
+    height: 12rem;
+    width: 10rem;
+    margin-right: 2rem;
+  }
+
+  .horizontalScroll .hzScrollBox img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5px;
+  }
+
+  .songPage .songPageNav span {
+    font-size: 1.1rem;
+    margin-left: 1rem;
+  }
+
+  .songScrollCon .topBox .songInfoCon h1 {
+    font-size: 1.3rem;
+  }
+
+  .songScrollCon .topBox .songInfoCon p {
+    font-size: 0.8rem;
+  }
+
+  .songBoxCon .songBox img {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 5px;
+  }
+
+  .songBoxCon .songBox .songInfo .songTitle {
+    font-size: 1rem;
+    width: 98%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .songBoxCon .songBox .songInfo .singerName {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .homePage nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .footer {
+    display: flex;
+  }
+
+  .upFooter {
+    display: flex;
+  }
+
+  .upFooterShow {
+    display: flex;
+  }
+
+  .scrollArea {
+    height: 90%;
+  }
+
+  .midBox {
+    height: 80%;
+  }
+
+  .page {
+    height: 85vh;
+    width: 100vw;
+  }
+
+  .phoneSongPage {
+    height: 100vh;
+    width: 100vw;
+  }
+
+
+}
