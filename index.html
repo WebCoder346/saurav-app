@@ -5,18 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>SonixPlay</title>
-  <link rel="website icon" type="jpeg" href="logo.jpeg">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Spotify</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="website icon" type="png" href="logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="media.css">
 </head>
 
 <body>
   <div class="alertBox">
     <i class="fa-solid fa-xmark x"></i>
-    <h2>Resie Screen</h2>
+    <h2>Resize Screen</h2>
     <button>Full Screen <i class="fa-solid fa-maximize"></i></button>
+  </div>
+  <div class="popUpBox">
+    Feature Not Available
   </div>
   <div class="body">
     <div class="leftBox">
@@ -24,13 +29,13 @@
         <div class="row houseBtn"><i class="fa-solid fa-house"></i>
           <p>Home</p>
         </div>
-        <div class="row"><i class="fa-solid fa-magnifying-glass"></i>
+        <div class="row searchPageBtn"><i class="fa-solid fa-magnifying-glass"></i>
           <p>Search</p>
         </div>
-        <div class="row"><i class="fa-brands fa-playstation"></i>
+        <div class="row libraryPageBtn"><i class="fa-brands fa-playstation"></i>
           <p>Your Library</p>
         </div>
-        <div class="row"><i class="fa-brands fa-spotify"></i>
+        <div class="row"><img class="logo" src="/SpotifyClone/logoWhite.png"></i>
           <p>Premium</p>
         </div>
       </div>
@@ -56,7 +61,10 @@
     </div>
     <div class="rightBox">
       <div class="midBox">
-        <div class="homePage">
+
+        <!--                   homePage            -->
+
+        <div class="homePage page">
           <nav>
             <div class="navBtn sIcon"><b>S</b></div>
             <div class="navBtn" style="background-color: #21D801;">All</div>
@@ -75,7 +83,37 @@
           </div>
         </div>
 
-        <div class="songPage">
+
+        <!--                   searchPage            -->
+        <div class="libraryPage page">
+          <h1>This is libraryPage <br> SUCCESSSUL program</h1>
+        </div>
+        <div class="searchPage page">
+          <div class="searchHomePage">
+
+            <div class="topRow">
+              <h2 class="sIcon">S</h2>
+              <h2 style="margin-left: 1rem;">Search</h2>
+            </div>
+            <div class="inputBox">
+              <i style="color: black; margin-right: 1rem;" class="fa-solid fa-magnifying-glass"></i>
+              <h5>What do you want to listen to?</h5>
+            </div>
+            <h3 style="margin-top: 1rem;">Start Browsing</h3>
+            <div class="browsingCon"></div>
+          </div>
+          <div class="searchAreaPage">
+            <div class="topRow">
+              <i style="margin-right: 1rem;" class="fa-solid fa-arrow-left"></i>
+              <input type="text" class="searchBox" placeholder="What do you want to listen to?">
+            </div>
+            <h3 style="margin: 1rem;">Recent searches</h3>
+            <div class="recentSongCon"></div>
+          </div>
+        </div>
+
+
+        <div class="songPage page">
           <div class="songPageNav">
             <i class="fa-solid fa-arrow-left songPageBackBtn"></i>
             <span>Lofi songs</span>
@@ -91,7 +129,7 @@
             <div class="songBoxCon"></div>
           </div>
         </div>
-        <div class="phoneSongPage">
+        <div class="phoneSongPage page">
           <div class="row">
             <i class="fa-solid fa-angle-down"></i>
             <p>Lofi love songs</p>
@@ -119,7 +157,7 @@
               <div class="downRow">
                 <div class="iconBox">
                   <i class="fa-solid fa-backward-step"></i>
-                  <i class="fa-solid fa-circle-play superBtn2 plBtn"></i> <!-- Removed trailing space -->
+                  <i class="fa-solid fa-circle-play superBtn2 plBtn"></i>
                   <i class="fa-solid fa-forward-step"></i>
                 </div>
               </div>
@@ -143,13 +181,13 @@
           <div class="column houseBtn"><i class="fa-solid fa-house"></i>
             <p>Home</p>
           </div>
-          <div class="column"><i class="fa-solid fa-magnifying-glass"></i>
+          <div class="column searchPageBtn"><i class="fa-solid fa-magnifying-glass"></i>
             <p>Search</p>
           </div>
-          <div class="column"><i class="fa-brands fa-playstation"></i>
+          <div class="column notAvailable"><i class="fa-brands fa-playstation"></i>
             <p>Library</p>
           </div>
-          <div class="column"><i class="fa-brands fa-spotify"></i>
+          <div class="column notAvailable"><i class="fa-brands fa-spotify"></i>
             <p>Premium</p>
           </div>
         </div>
