@@ -1,5 +1,6 @@
 let plstBoxes = [];
 let songBoxes = [];
+let searchBoxes = [];
 let allSongs = [];
 let freshMusicBoxes = [];
 // let backInBoxes = [];
@@ -21,6 +22,7 @@ const upFooterArtist = document.querySelector(".upFooter .upFooterInfo .upFooter
 const upFooterTitle = document.querySelector(".upFooter .upFooterInfo .upFooterTitle")
 const upFooterBtn = document.querySelector(".upFooterBtn")
 const phoneSongPage = document.querySelector(".phoneSongPage");
+const pages = document.querySelectorAll(".page");
 
 // Default song container functionality
 let audioSrc = defaultSong.song;
@@ -140,10 +142,11 @@ function freshBoxClick() {
   let freshBoxes = document.querySelectorAll(".freshBox");
   freshBoxes.forEach((box, index) => {
     box.addEventListener("click", () => {
-      homePage.style.display = "none";
-      songPage.style.display = "flex";
-      makeSongPage(freshData[index].type, index, freshData);
-
+      pages.forEach(page => {
+        page.style.display = "none";
+        document.querySelector(".songPage").style.display = "flex";
+        makeSongPage(freshData[index].type, index, freshData);
+      })
     })
   })
 }
@@ -173,10 +176,7 @@ function onBackInBoxClick() {
   let backinBoxes = document.querySelectorAll(".backinBox");
   backinBoxes.forEach((box, index) => {
     box.addEventListener("click", () => {
-      homePage.style.display = "none";
-      songPage.style.display = "flex";
       makeSongPage(backInData[index].type, index, backInData);
-
     })
   })
 }
@@ -202,15 +202,10 @@ for (let i = 0; i < todayData.length; i++) {
 }
 
 function onTodayBoxClick() {
-  console.log("TodayBox created");
   let todayBoxes = document.querySelectorAll(".todayBox");
   todayBoxes.forEach((box, index) => {
     box.addEventListener("click", () => {
-      console.log("Hello Today")
-      homePage.style.display = "none";
-      songPage.style.display = "flex";
       makeSongPage(todayData[index].type, index, todayData);
-
     })
   })
 }
@@ -222,8 +217,6 @@ function getPlstIndex() {
   const playlistBoxes = document.querySelectorAll(".plstBoxes");
   playlistBoxes.forEach((box, index) => {
     box.addEventListener("click", (e) => {
-      homePage.style.display = "none";
-      songPage.style.display = "flex";
       makeSongPage(playlist[index].type, index, playlist);
     })
   })
@@ -231,6 +224,10 @@ function getPlstIndex() {
 getPlstIndex()
 
 function makeSongPage(plstType, plstIndex, dataName) {
+  pages.forEach(page => {
+    page.style.display = "none";
+    document.querySelector(".songPage").style.display = "flex";
+  })
   songBoxes = [];
   const songBoxCon = document.querySelector(".songBoxCon")
   songBoxCon.innerHTML = "";
@@ -295,7 +292,6 @@ function onSongBoxClick() {
 
       upFooterBtn.classList.remove("fa-play");
       upFooterBtn.classList.add("fa-pause");
-
       audioElement.play();
       isPlay = true;
       rangeBarFnc()
@@ -353,40 +349,22 @@ function btnPlayPause() {
   })
 }
 
-upFooterBtn.addEventListener("click", () => {
-  if (isPlay) {
-    btn.classList.remove("fa-pause");
-    btn.classList.add("fa-play");
-    audioElement.pause();
-    setTimeout(() => {
-      isPlay = false;
-    }, 100)
-  }
-  else {
-    btn.classList.remove("fa-play");
-    btn.classList.add("fa-pause");
-    audioElement.play();
-    setTimeout(() => {
-      isPlay = true;
-    }, 100)
-  }
-})
-
-
-
 function getBackHome() {
-  songPage.style.display = "none";
-  homePage.style.display = "flex";
+  pages.forEach(page => {
+    page.style.display = "none";
+    document.querySelector(".homePage").style.display = "flex";
+  })
   currentIndex = 0;
 }
 document.querySelector(".songPageBackBtn").addEventListener("click", getBackHome);
 document.querySelector(".leftBox .iconBox .houseBtn").addEventListener("click", getBackHome);
 document.querySelector(".footerCon .footer .houseBtn").addEventListener("click", getBackHome);
 document.querySelector(".phoneSongPage .row .fa-angle-down").addEventListener("click", () => {
-  phoneSongPage.style.display = "none";
-  homePage.style.display = "noen";
-  footerCon.style.display = "inline";
-  songPage.style.display = "flex";
+  pages.forEach(page => {
+    page.style.display = "none";
+    footerCon.style.display = "inline";
+    songPage.style.display = "flex";
+  })
 });
 
 
@@ -417,59 +395,203 @@ btns.forEach((btn) => {
 })
 
 document.querySelector(".upFooter").addEventListener("click", () => {
-  homePage.style.display = "none";
-  songPage.style.display = "none";
-  footerCon.style.display = "none";
-  phoneSongPage.style.display = "flex";
-
+  pages.forEach(page => {
+    page.style.display = "none";
+    footerCon.style.display = "none";
+    phoneSongPage.style.display = "flex";
+  })
 });
 
 
 // screen resize funcanalioty
-document.querySelector(".alertBox .x").addEventListener("click", () => {
-  document.querySelector(".alertBox").style.display = "none";
-  document.querySelector(".body").style.filter = "none";
+  document.querySelector(".alertBox .x").addEventListener("click", () => {
+    document.querySelector(".alertBox").style.display = "none";
+    document.querySelector(".body").style.filter = "none";
+  })
+  document.querySelector(".alertBox button").addEventListener("click", () => {
+    changeScreen();
+    document.querySelector(".alertBox").style.display = "none";
+    document.querySelector(".body").style.filter = "none";
 })
-document.querySelector(".alertBox button").addEventListener("click", () => {
-  document.querySelector(".alertBox").style.display = "none";
-  document.querySelector(".body").style.filter = "none";
-  changeScreen();
-})
-
-
-
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-// document.body.appendChild(renderer.domElement);
-function changeScreen() {
+  const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
-  if (!document.fullscreenElement) {
-    document.body.requestFullscreen();
+
+  function changeScreen() {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    if (!document.fullscreenElement) {
+      document.body.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  }
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "f") {
+      changeScreen();
+    }
+  });
+
+
+  window.onload = function() {
+    history.pushState(null, null, window.location.href);
+    window.onpopstate = function(event) {
+      event.preventDefault(); // Stop default behavior
+      var userResponse = confirm("Are you sure you want to quit listning musics 🎶?");
+      if (userResponse) {
+        history.back(); // Allows the back navigation
+      } else {
+        // If not, push the state again to prevent back navigation
+        history.pushState(null, null, window.location.href);
+      }
+    };
+  };
+
+
+
+
+// // // // // // // // // // Search Page // // // // // // // // // // /
+
+document.querySelectorAll(".searchPageBtn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    pages.forEach(page => {
+      page.style.display = "none";
+      document.querySelector(".searchPage").style.display = "flex";
+      document.querySelector(".searchHomePage").style.display = "flex";
+      document.querySelector(".searchAreaPage").style.display = "none";
+    })
+  });
+})
+
+for (let i = 0; i < browsingData.length; i++) {
+  const browsingBox = document.createElement("div");
+  browsingBox.classList.add("browsingBox");
+  browsingBox.classList.add("notAvailable");
+  const titlePara = document.createElement("p");
+  const image = document.createElement("img");
+  titlePara.textContent = browsingData[i].title;
+  image.src = browsingData[i].imgSrc;
+  browsingBox.style.background = `${browsingData[i].background}`;
+  browsingBox.appendChild(titlePara);
+  browsingBox.appendChild(image);
+  document.querySelector(".browsingCon").appendChild(browsingBox);
+}
+
+document.querySelector(".searchPage .inputBox").addEventListener("click", () => {
+  pages.forEach(page => {
+    page.style.display = "none";
+    document.querySelector(".searchHomePage").style.display = "none";
+    document.querySelector(".searchPage").style.display = "flex";
+    document.querySelector(".searchAreaPage").style.display = "flex";
+    document.querySelector(".searchAreaPage .topRow .searchBox").focus();
+  })
+})
+document.querySelector(".searchPage .searchAreaPage .topRow i").addEventListener("click", () => {
+  pages.forEach(page => {
+    page.style.display = "none";
+    document.querySelector(".searchAreaPage").style.display = "none";
+    document.querySelector(".searchHomePage").style.display = "flex";
+    document.querySelector(".searchPage").style.display = "flex";
+  })
+})
+
+
+// recent song functionality
+function searchSongBoxes(i, data) {
+  const recentSongBox = document.createElement('div');
+  recentSongBox.classList.add('recentSongBox');
+  const flexDiv = document.createElement('div');
+  flexDiv.style.display = 'flex';
+  const img = document.createElement('img');
+  img.src = data[i].image;
+  const songInfoBox = document.createElement('div');
+  songInfoBox.classList.add('songInfoBox');
+  const songTitle = document.createElement('p');
+  songTitle.classList.add("searchSongTitle");
+  songTitle.textContent = data[i].title;
+  const artistName = document.createElement('span');
+  artistName.textContent = data[i].artist;
+  songInfoBox.appendChild(songTitle);
+  songInfoBox.appendChild(artistName);
+  flexDiv.appendChild(img);
+  flexDiv.appendChild(songInfoBox);
+  const closeIcon = document.createElement('i');
+  closeIcon.classList.add('fa-solid', 'fa-xmark');
+  recentSongBox.appendChild(flexDiv);
+  recentSongBox.appendChild(closeIcon);
+  document.querySelector(".recentSongCon").appendChild(recentSongBox);
+  searchBoxClick();
+}
+for (let i = 0; i < data.length; i++) {
+  searchSongBoxes(i, data);
+}
+// on searchBoxClick
+function searchBoxClick() {
+  const boxes = document.querySelectorAll(".recentSongBox");
+  boxes.forEach((box, index) => {
+    box.addEventListener("click", (e) => {
+      allSongs = [];
+      currentIndex = index;
+      allSongs.push(data);
+      let songs = allSongs[0];
+      const title = document.querySelectorAll(".searchSongTitle");
+      title.forEach(pa => {
+        pa.style.color = "white";
+      })
+      title[index].style.color = "#21D801";
+      console.log(title[index].textContent)
+
+      data.forEach(obj => {
+        if (obj.title == title[index].textContent) {
+          audioElement.src = obj.song;
+          audioElement.play();
+          isPlay = true;
+          playFnc();
+          document.querySelectorAll(".songImages").forEach(songImg => {
+            songImg.src = obj.image;
+          })
+          document.querySelectorAll(".songNames").forEach(songName => {
+            songName.textContent = obj.title;
+          })
+          document.querySelectorAll(".artistNames").forEach(artistName => {
+            artistName.textContent = obj.artist;
+          })
+        }
+      })
+
+
+    })
+  })
+}
+
+
+
+// search on input functionality
+
+document.querySelector(".searchAreaPage .topRow .searchBox").addEventListener("input", (e) => {
+  const query = e.target.value.toLowerCase();
+  const results = data.filter(song =>
+    song.title.toLowerCase().includes(query) ||
+    song.artist.toLowerCase().includes(query)
+  );
+  showSearchResult(results, query)
+})
+
+function showSearchResult(results, query) {
+  if (results.length > 0) {
+    document.querySelector(".recentSongCon").innerHTML = "";
+    for (let i = 0; i < results.length; i++) {
+      searchSongBoxes(i, results);
+    }
   } else {
-    document.exitFullscreen();
+    document.querySelector(".recentSongCon").innerHTML = `<p class='notFound'>Not Found: " ${query} "<p>`;
   }
 }
-window.addEventListener("keydown", (e) => {
-  if (e.key === "f") {
-    changeScreen();
-  }
-});
 
-
-window.onload = function() {
-  // Push a state to history when the page loads
-  history.pushState(null, null, window.location.href);
-  
-  window.onpopstate = function(event) {
-    event.preventDefault(); // Stop default behavior
-    var userResponse = confirm("Are you sure you want to quit listning musics 🎶?");
-    if (userResponse) {
-      history.back(); // Allows the back navigation
-    } else {
-      // If not, push the state again to prevent back navigation
-      history.pushState(null, null, window.location.href);
-    }
-  };
-};
-
-
+// PopUp
+document.querySelectorAll(".notAvailable").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelector(".popUpBox").classList.add("animatePopUp");
+    setTimeout(() => {
+      document.querySelector(".popUpBox").classList.remove("animatePopUp");
+    }, 500)
+  })
+})
