@@ -23,6 +23,8 @@ const upFooterTitle = document.querySelector(".upFooter .upFooterInfo .upFooterT
 const upFooterBtn = document.querySelector(".upFooterBtn")
 const phoneSongPage = document.querySelector(".phoneSongPage");
 const pages = document.querySelectorAll(".page");
+const songBoxCon = document.querySelector(".songBoxCon");
+const songPageImg = document.querySelector(".songPage .topBox img");
 
 // Default song container functionality
 let audioSrc = defaultSong.song;
@@ -229,11 +231,10 @@ function makeSongPage(plstType, plstIndex, dataName) {
     document.querySelector(".songPage").style.display = "flex";
   })
   songBoxes = [];
-  const songBoxCon = document.querySelector(".songBoxCon")
   songBoxCon.innerHTML = "";
   document.querySelector(".songPageNav span").textContent = dataName[plstIndex].title;
   document.querySelector(".songInfoCon h1").textContent = dataName[plstIndex].title;
-  document.querySelector(".songPage .topBox img").src = dataName[plstIndex].image;
+  document.querySelector(".songPage .topBox img").src = dataName[plstIndex].image || dataName[plstIndex].imgSrc;
   for (let i = 0; i < data.length; i++) {
     if (data[i].type.includes(plstType)) {
       const songBox = document.createElement('div');
@@ -403,7 +404,7 @@ document.querySelector(".upFooter").addEventListener("click", () => {
 });
 
 
-// screen resize funcanalioty
+screen resize funcanalioty
   document.querySelector(".alertBox .x").addEventListener("click", () => {
     document.querySelector(".alertBox").style.display = "none";
     document.querySelector(".body").style.filter = "none";
@@ -474,7 +475,12 @@ for (let i = 0; i < browsingData.length; i++) {
   browsingBox.appendChild(image);
   document.querySelector(".browsingCon").appendChild(browsingBox);
 }
-
+document.querySelectorAll(".browsingBox").forEach(box => {
+  box.addEventListener("click", () => {
+    pages.forEach(page => page.style.display = "none");
+    document.querySelector(".libraryPage").style.display = "flex";
+  })
+})
 document.querySelector(".searchPage .inputBox").addEventListener("click", () => {
   pages.forEach(page => {
     page.style.display = "none";
@@ -586,12 +592,52 @@ function showSearchResult(results, query) {
   }
 }
 
-// PopUp
-document.querySelectorAll(".notAvailable").forEach(btn => {
+
+// // // // // // // // // // Library Page // // // // // // // // // // 
+
+document.querySelectorAll(".libraryPageBtn").forEach(btn => {
   btn.addEventListener("click", () => {
-    document.querySelector(".popUpBox").classList.add("animatePopUp");
-    setTimeout(() => {
-      document.querySelector(".popUpBox").classList.remove("animatePopUp");
-    }, 500)
+    pages.forEach(page => {
+      page.style.display = "none";
+    })
+    document.querySelector(".libraryPage").style.display = "flex";
   })
+})
+
+for (let i = 0; i < libraryBoxData.length; i++) {
+  const libraryBox = document.createElement('div');
+  libraryBox.className = 'libraryBox';
+  const img = document.createElement('img');
+  img.src = libraryBoxData[i].imgSrc;
+  const infoDiv = document.createElement('div');
+  infoDiv.className = 'info';
+  const artistName = document.createElement('p');
+  artistName.textContent = libraryBoxData[i].title;
+  const artistRole = document.createElement('span');
+  artistRole.textContent = 'Artist';
+  infoDiv.appendChild(artistName);
+  infoDiv.appendChild(artistRole);
+  libraryBox.appendChild(img);
+  libraryBox.appendChild(infoDiv);
+  document.querySelector(".libraryBoxCon").appendChild(libraryBox);
+}
+
+document.querySelectorAll(".libraryBox").forEach((box, index) => {
+  box.addEventListener("click", () => {
+    pages.forEach(page => page.style.display = "none");
+    songPage.style.display = "flex";
+    songBoxCon.innerHTML = "";
+    songPageImg.style.width = "auto";
+    songPageImg.src = libraryBoxData[index].imgSrc;
+    makeSongPage(libraryBoxData[index].type, index, libraryBoxData)
+  })
+})
+
+document.querySelector(".favouriteBox").addEventListener("click", () => {
+  pages.forEach(page => page.style.display = "none");
+  songPage.style.display = "flex";
+  songBoxCon.innerHTML = "";
+  songPageImg.style.width = "auto";
+  songPageImg.src = likeSongData[0].imgSrc;
+  makeSongPage(likeSongData[0].type, 0, likeSongData)
 })
