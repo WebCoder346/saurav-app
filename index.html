@@ -10,8 +10,9 @@
   <link rel="website icon" type="png" href="logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="search.css">
   <link rel="stylesheet" href="media.css">
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="library.css">
 </head>
 
 <body>
@@ -19,9 +20,6 @@
     <i class="fa-solid fa-xmark x"></i>
     <h2>Resize Screen</h2>
     <button>Full Screen <i class="fa-solid fa-maximize"></i></button>
-  </div>
-  <div class="popUpBox">
-    Feature Not Available
   </div>
   <div class="body">
     <div class="leftBox">
@@ -85,9 +83,7 @@
 
 
         <!--                   searchPage            -->
-        <div class="libraryPage page">
-          <h1>This is libraryPage <br> SUCCESSSUL program</h1>
-        </div>
+
         <div class="searchPage page">
           <div class="searchHomePage">
 
@@ -112,6 +108,31 @@
           </div>
         </div>
 
+        <!--                   library Page            -->
+
+        <div class="libraryPage page">
+          <div class="topRow">
+            <div>
+              <h2>S</h2><span>Your Library</span>
+            </div>
+            <p style="font-size: 2rem;">+</p>
+          </div>
+          <div class="midRow">
+            <button>Playlists</button>
+            <button>Artist</button>
+          </div>
+          <div class="libraryBoxCon">
+            <div class="favouriteBox">
+              <div class="logo">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div class="info">
+                <p>Saurav's favourite</p>
+                <span>Playlist • 30 songs</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="songPage page">
           <div class="songPageNav">
@@ -184,17 +205,14 @@
           <div class="column searchPageBtn"><i class="fa-solid fa-magnifying-glass"></i>
             <p>Search</p>
           </div>
-          <div class="column notAvailable"><i class="fa-brands fa-playstation"></i>
+          <div class="column libraryPageBtn"><i class="fa-brands fa-playstation"></i>
             <p>Library</p>
           </div>
-          <div class="column notAvailable"><i class="fa-brands fa-spotify"></i>
+          <div class="column notAvailable"><img style="height: 2rem; width: 2rem;" src="logoWhite.png">
             <p>Premium</p>
           </div>
         </div>
       </div>
-
-
-
     </div>
   </div>
 
