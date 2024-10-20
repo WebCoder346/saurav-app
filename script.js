@@ -3,6 +3,7 @@ let songBoxes = [];
 let searchBoxes = [];
 let allSongs = [];
 let freshMusicBoxes = [];
+
 // let backInBoxes = [];
 let currentIndex;
 let songBoxesLength;
@@ -404,7 +405,7 @@ document.querySelector(".upFooter").addEventListener("click", () => {
 });
 
 
-screen resize funcanalioty
+// screen resize funcanalioty
   document.querySelector(".alertBox .x").addEventListener("click", () => {
     document.querySelector(".alertBox").style.display = "none";
     document.querySelector(".body").style.filter = "none";
