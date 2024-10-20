@@ -1,0 +1,112 @@
+.libraryPage {
+  display: none;
+  flex-direction: column;
+}
+
+.libraryPage .topRow {
+  width: 100%;
+  height: 4rem;
+  padding: 2rem 1rem;
+  padding-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.libraryPage .topRow div {
+  display: flex;
+  align-items: center;
+}
+
+.libraryPage .topRow h2 {
+  background: deepskyblue;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.libraryPage .topRow span {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.libraryPage .topRow i {
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+
+.libraryBoxCon {
+  overflow: scroll;
+  height: 80vh;
+  width: 100%;
+  padding: 1rem;
+}
+
+.libraryBox,
+.favouriteBox {
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.libraryBoxCon .favouriteBox .logo {
+  height: 4rem;
+  width: 4rem;
+  background: linear-gradient(135deg, #6d44d5, #8ab1a5);
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.libraryBox img {
+  height: 4rem;
+  width: 4rem;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.info p {
+  font-size: 1.1rem;
+}
+
+.info span {
+  font-size: 0.9rem;
+  color: #BDBDBD;
+}
+
+.midRow {
+  width: 100%;
+  background: #4C4C4C;
+  height: 4rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.midRow button {
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem 2rem;
+  margin-left: 1rem;
+  background: #939393;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
