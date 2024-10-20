@@ -44,9 +44,6 @@ const data = [
     type: ["msd", 'arijit'],
 
   },
-
-
-
   {
     image: "img1.jpeg",
     song: "song6.mp3",
@@ -68,7 +65,7 @@ const data = [
     song: "song8.mp3",
     title: "Aam Jahe Munde",
     artist: "Parmish Verma",
-    type: ["punjabi","lofi"],
+    type: ["punjabi","lofi", "like"],
 
   },
   {
@@ -84,7 +81,7 @@ const data = [
     song: "song10.mp3",
     title: "Ve Kamleya-Lofi",
     artist: "Deepanshu, Arijit Singh",
-    type: ["lofi", "arijit", "arijit2"],
+    type: ["lofi", "arijit", "arijit2", "like"],
 
   },
   {
@@ -162,7 +159,7 @@ const data = [
     song: "song20.mp3",
     title: "Uska Hi Banana",
     artist: "Arijit Singh",
-    type: ["relax"],
+    type: ["relax", "like"],
   },
   {
     image: "img21.jpeg",
@@ -183,7 +180,7 @@ const data = [
     song: "song23.mp3",
     title: "O Saathi",
     artist: "Atif Aslam, Manoj Bajpayee",
-    type: ["relax","lofi", "relax2"],
+    type: ["relax","lofi", "relax2", "like"],
   },
   {
     image: "img31.jpeg",
@@ -197,35 +194,35 @@ const data = [
     song: "song24.mp3",
     title: "Hawayein",
     artist: "Arijit Singh, Pritam",
-    type: ["arijit", "arijit2", "relax", "relax2"],
+    type: ["arijit", "arijit2", "relax", "relax2", "like"],
   },
   {
     image: "img27.jpeg",
     song: "song25.mp3",
     title: "Tujhe Kitna Chahne Lage",
     artist: "Arijit Singh, Mithoon",
-    type: ["arijit", "arijit2", "relax", "relax2"],
+    type: ["arijit", "arijit2", "relax", "relax2", "like"],
   },
   {
     image: "img28.jpeg",
     song: "song26.mp3",
     title: "Roke Na Ruke Naina",
     artist: "Arijit Singh",
-    type: ["arijit", "arijit2", "relax", "relax2"],
+    type: ["arijit", "arijit2", "relax", "relax2", "like"],
   },
   {
     image: "img29.jpeg",
     song: "song27.mp3",
     title: "Choo Lo",
     artist: "The Local Train",
-    type: ["arijit", "arijit2", "relax", "relax2", "motivation"],
+    type: ["arijit", "arijit2", "relax", "relax2", "motivation", "like"],
   },
   {
     image: "img30.jpeg",
     song: "song28.mp3",
     title: "Apna Bana Le",
     artist: "Arijit Singh, Sachin",
-    type: ["arijit", "arijit2", "relax", "relax2"],
+    type: ["arijit", "arijit2", "relax", "relax2", "like"],
   },
 
 
@@ -320,3 +317,24 @@ const browsingData = [
     background: "deepskyblue"
    },
  ]
+
+const libraryBoxData = [
+  {
+    title: "Arijit Singh",
+    imgSrc: "img32.jpeg",
+    type: "arijit",
+  },
+  {
+    title: "Darshan Raval",
+    imgSrc: "img33.jpeg",
+    type: "motivation",
+  },
+]
+
+const likeSongData = [
+  {
+    title: "Saurav's favourite",
+    image: "img34.jpeg",
+    type: "like",
+  }
+]
