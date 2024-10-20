@@ -554,12 +554,13 @@ body {
   /* width: 350px; */
   position: relative;
 }
-
-/* .homePage,
+/* 
+.homePage,
 .songPage,
 .footerCon,
 .phoneSongPage,
-.searchHomePage{
+.searchHomePage,
+.searchPage{
   display: none;
 } */
 
@@ -567,37 +568,3 @@ body {
   width: 75vw;
   height: 100vh;
 }
-
-.popUpBox{
-  background: #FFFFFFD4;
-  position: absolute;
-  bottom: 15rem;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  height: 2rem;
-  width: 15rem;
-  border-radius: 2rem;
-  font-size: 1rem;
-  color: black;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-}
-.animatePopUp{
-  animation: popUp 0.5s linear 1;
-}
-@keyframes popUp{
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opacity: 1;
-  }
-  100%{
-    opacity: 1;
-  }
-}
-
