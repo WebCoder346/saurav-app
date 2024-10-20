@@ -327,7 +327,7 @@ const libraryBoxData = [
   {
     title: "Darshan Raval",
     imgSrc: "img33.jpeg",
-    type: "motivation",
+    type: "relax2",
   },
 ]
 
