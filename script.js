@@ -642,3 +642,14 @@ document.querySelector(".favouriteBox").addEventListener("click", () => {
   songPageImg.src = likeSongData[0].imgSrc;
   makeSongPage(likeSongData[0].type, 0, likeSongData)
 })
+
+const scrollContainers = document.querySelectorAll('.horizontalScroll');
+scrollContainers.forEach(scrollContainer => {
+  scrollContainer.addEventListener('wheel', (event) => {
+    event.preventDefault();
+    scrollContainer.scrollBy({
+      left: event.deltaY < 0 ? -100 : 100, // Adjust scroll speed
+      behavior: 'smooth'
+    });
+  });
+})
