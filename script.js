@@ -643,13 +643,40 @@ document.querySelector(".favouriteBox").addEventListener("click", () => {
   makeSongPage(likeSongData[0].type, 0, likeSongData)
 })
 
+
 const scrollContainers = document.querySelectorAll('.horizontalScroll');
 scrollContainers.forEach(scrollContainer => {
-  scrollContainer.addEventListener('wheel', (event) => {
-    event.preventDefault();
-    scrollContainer.scrollBy({
-      left: event.deltaY < 0 ? -100 : 100, // Adjust scroll speed
-      behavior: 'smooth'
-    });
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  scrollContainer.addEventListener('mousedown', (e) => {
+    isDown = true;
+    scrollContainer.classList.add('active');
+    startX = e.pageX - scrollContainer.offsetLeft;
+    scrollLeft = scrollContainer.scrollLeft;
+    scrollContainer.style.cursor = 'grabbing'; // Change cursor on click
+  });
+
+  // Mouse leave event
+  scrollContainer.addEventListener('mouseleave', () => {
+    isDown = false;
+    scrollContainer.style.cursor = 'grab'; // Revert cursor when leaving the area
+  });
+
+  // Mouse up event
+  scrollContainer.addEventListener('mouseup', () => {
+    isDown = false;
+    scrollContainer.style.cursor = 'grab'; // Revert cursor on release
+  });
+
+  // Mouse move event
+  scrollContainer.addEventListener('mousemove', (e) => {
+    if (!isDown) return; // Stop the function if mouse isn't held down
+    e.preventDefault();
+
+    const x = e.pageX - scrollContainer.offsetLeft;
+    const walk = (x - startX) * 1.5; // Multiply for faster scroll (adjust speed here)
+    scrollContainer.scrollLeft = scrollLeft - walk;
   });
 })
