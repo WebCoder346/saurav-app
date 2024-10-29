@@ -84,15 +84,23 @@ function rangeBarFnc() {
       document.querySelectorAll(".progress").forEach(progressBar => {
         progressBar.style.width = rangeBar.value + "%";
       })
-
+      
       if (audioElement.currentTime == (audioElement.duration)) {
-        if ((currentIndex + 1) < songBoxesLength) {
-          audioElement.src = allSongs[currentIndex + 1].song;
-          updateAll(currentIndex + 1);
-          isPlay = true;
-          playFnc();
-          currentIndex += 1;
-        }
+        dataIndex += 1;
+        audioElement.src =
+          data[dataIndex].song;
+        document.querySelectorAll(".songImages").forEach(songImg => {
+          songImg.src = data[dataIndex].image;
+        })
+        document.querySelectorAll(".songNames").forEach(songName => {
+          songName.textContent = data[dataIndex].title;
+        })
+        document.querySelectorAll(".artistNames").forEach(artistName => {
+          artistName.textContent = data[dataIndex].artist;
+        })
+        isPlay = true;
+        playFnc();
+
       }
       rangeBar.addEventListener("input", () => {
         audioElement.currentTime = rangeBar.value * audioElement.duration / 100;
