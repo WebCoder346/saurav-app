@@ -3,6 +3,7 @@ let songBoxes = [];
 let searchBoxes = [];
 let allSongs = [];
 let freshMusicBoxes = [];
+let dataIndex = 0;
 
 // let backInBoxes = [];
 let currentIndex;
@@ -84,7 +85,7 @@ function rangeBarFnc() {
       document.querySelectorAll(".progress").forEach(progressBar => {
         progressBar.style.width = rangeBar.value + "%";
       })
-      
+
       if (audioElement.currentTime == (audioElement.duration)) {
         dataIndex += 1;
         audioElement.src =
@@ -414,6 +415,8 @@ document.querySelector(".upFooter").addEventListener("click", () => {
 
 
 // screen resize funcanalioty
+
+
   document.querySelector(".alertBox .x").addEventListener("click", () => {
     document.querySelector(".alertBox").style.display = "none";
     document.querySelector(".body").style.filter = "none";
@@ -651,7 +654,21 @@ document.querySelector(".favouriteBox").addEventListener("click", () => {
   makeSongPage(likeSongData[0].type, 0, likeSongData)
 })
 
+// // // // // // // // // // Settings Page // // // // // // // // // // 
 
+
+document.querySelectorAll(".settingPageBtn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    pages.forEach(page => {
+      page.style.display = "none";
+    })
+    document.querySelector(".settingPage").style.display = "flex";
+  })
+})
+
+
+
+// Horizontal scroll functionality
 const scrollContainers = document.querySelectorAll('.horizontalScroll');
 scrollContainers.forEach(scrollContainer => {
   let isDown = false;
