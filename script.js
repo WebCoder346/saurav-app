@@ -1,9 +1,12 @@
+let loopSongs;
 let plstBoxes = [];
 let songBoxes = [];
 let searchBoxes = [];
 let allSongs = [];
 let freshMusicBoxes = [];
 let dataIndex = 0;
+
+let playingTitle = defaultSong.title;
 
 // let backInBoxes = [];
 let currentIndex;
@@ -40,6 +43,7 @@ document.querySelectorAll(".songNames").forEach(songName => {
 document.querySelectorAll(".artistNames").forEach(artistName => {
   artistName.textContent = defaultSong.artist;
 })
+localStorage.setItem("playingTitle", JSON.stringify(defaultSong.title));
 
 
 btnPlayPause();
@@ -86,23 +90,7 @@ function rangeBarFnc() {
         progressBar.style.width = rangeBar.value + "%";
       })
 
-      if (audioElement.currentTime == (audioElement.duration)) {
-        dataIndex += 1;
-        audioElement.src =
-          data[dataIndex].song;
-        document.querySelectorAll(".songImages").forEach(songImg => {
-          songImg.src = data[dataIndex].image;
-        })
-        document.querySelectorAll(".songNames").forEach(songName => {
-          songName.textContent = data[dataIndex].title;
-        })
-        document.querySelectorAll(".artistNames").forEach(artistName => {
-          artistName.textContent = data[dataIndex].artist;
-        })
-        isPlay = true;
-        playFnc();
 
-      }
       rangeBar.addEventListener("input", () => {
         audioElement.currentTime = rangeBar.value * audioElement.duration / 100;
       })
@@ -256,7 +244,10 @@ function makeSongPage(plstType, plstIndex, dataName) {
       const aboutSong = document.createElement('div');
       aboutSong.className = 'aboutSong';
       const songTitle = document.createElement('p');
-      songTitle.className = 'songTitle ellips';
+      // songTitle.className = 'songTitle ellips';
+      songTitle.classList.add("songTitle")
+      songTitle.classList.add("ellips")
+      songTitle.classList.add("playlistSongTitle");
       songTitle.textContent = data[i].title;
       const singerName = document.createElement('p');
       singerName.className = 'singerName ellips';
@@ -288,15 +279,16 @@ function onSongBoxClick() {
   songBoxes.forEach((box, index) => {
 
     box.addEventListener("click", () => {
-      let songBoxTitle = document.querySelectorAll(".songTitle");
+      let songBoxTitle = document.querySelectorAll(".playlistSongTitle");
       songBoxesLength = songBoxes.length;
       currentIndex = index;
       setInterval(() => {
         songBoxTitle.forEach(a => {
           a.style.color = "white";
         })
-        songBoxTitle[currentIndex].style.color = "#21D801"
+        songBoxTitle[currentIndex].style.color = "#21D801";
       }, 1)
+      playingTitle = songBoxTitle[currentIndex].textContent;
       audioSrc = allSongs[index].song;
       audioElement.src = audioSrc;
       playFnc()
@@ -311,6 +303,7 @@ function onSongBoxClick() {
       btnPlayPause();
     })
   })
+  makeTitleGreen();
 }
 
 function refresh(index) {
@@ -524,6 +517,7 @@ function searchSongBoxes(i, data) {
   songInfoBox.classList.add('songInfoBox');
   const songTitle = document.createElement('p');
   songTitle.classList.add("searchSongTitle");
+  songTitle.classList.add("songTitle");
   songTitle.textContent = data[i].title;
   const artistName = document.createElement('span');
   artistName.textContent = data[i].artist;
@@ -551,10 +545,14 @@ function searchBoxClick() {
       allSongs.push(data);
       let songs = allSongs[0];
       const title = document.querySelectorAll(".searchSongTitle");
-      title.forEach(pa => {
-        pa.style.color = "white";
+      // setInterval(() => {
+      title.forEach(a => {
+        a.style.color = "white";
       })
       title[index].style.color = "#21D801";
+      // }, 1)
+      playingTitle = title[index].textContent;
+      // playingTitle = title[index];
       console.log(title[index].textContent)
 
       data.forEach(obj => {
@@ -578,6 +576,7 @@ function searchBoxClick() {
 
     })
   })
+  makeTitleGreen()
 }
 
 
@@ -704,4 +703,89 @@ scrollContainers.forEach(scrollContainer => {
     const walk = (x - startX) * 1.5; // Multiply for faster scroll (adjust speed here)
     scrollContainer.scrollLeft = scrollLeft - walk;
   });
+})
+
+
+// make title green with localsorage
+function makeTitleGreen() {
+  if (localStorage.getItem("playingTitle")) {
+    let greenTitle = JSON.parse(localStorage.getItem("playingTitle"));
+    document.querySelectorAll(".songTitle").forEach(title => {
+      title.style.color = "white";
+
+      if (title.textContent == greenTitle) {
+        // console.log(title);
+        title.style.color = "#21D801";
+      }
+    })
+    // console.log(greenTitle);
+  }
+  songLoop();
+}
+makeTitleGreen()
+audioElement.addEventListener("play", (e) => {
+  localStorage.setItem("playingTitle", JSON.stringify(playingTitle));
+  makeTitleGreen(playingTitle)
+})
+
+function songLoop() {
+  let filteredData = data.filter(data => data.title == playingTitle);
+
+  const a = data.filter(item => {
+      let b = item.type.some(type => filteredData[0].type.includes(type))
+      return b;
+    }
+
+  );
+  loopSongs = a;
+  console.log(loopSongs)
+}
+
+songLoop()
+audioElement.addEventListener("timeupdate", () => {
+  if (audioElement.currentTime == (audioElement.duration)) {
+    pauseFnc();
+    if (loopSongs.length > 0 && loopSongs.length - 1 > dataIndex) {
+      setTimeout(() => {
+        playFnc();
+      }, 100)
+      dataIndex += 1;
+      console.log(loopSongs)
+      playingTitle = loopSongs[dataIndex].title;
+      localStorage.setItem("playingTitle", JSON.stringify(playingTitle));
+      document.querySelectorAll(".songTitle").forEach(title => {
+        title.style.color = "white";
+        let boxTitle = document.querySelectorAll(".playlistSongTitle");
+        boxTitle.forEach(t => {
+          t.style.color = "white";
+        })
+      
+        if (title.textContent == JSON.parse(localStorage.getItem("playingTitle"))) {
+          // console.log(title);
+          title.style.color = "#21D801";
+          boxTitle.forEach(t => {
+            
+          t.style.color = "#21D801";
+          })
+        }
+      })
+      // makeTitleGreen();
+      console.log("change", loopSongs.length - 1, " : ", dataIndex, playingTitle);
+
+      audioElement.src = loopSongs[dataIndex].song;
+      console.log(loopSongs[dataIndex])
+      document.querySelectorAll(".songImages").forEach(songImg => {
+        songImg.src = loopSongs[dataIndex].image;
+      })
+      document.querySelectorAll(".songNames").forEach(songName => {
+        songName.textContent = loopSongs[dataIndex].title;
+      })
+      document.querySelectorAll(".artistNames").forEach(artistName => {
+        artistName.textContent = loopSongs[dataIndex].artist;
+      })
+      isPlay = true;
+      playFnc();
+
+    }
+  }
 })
